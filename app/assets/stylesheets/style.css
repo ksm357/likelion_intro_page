@@ -81,9 +81,9 @@ p {
     margin-right : 200px;
 }
 
-.logo h2 {}
+.logo {}
 
-.logo h2 a {
+.logo a {
     text-decoration: none
 }
 
@@ -355,10 +355,11 @@ p {
 
 
 /**/
-.color_orange{
-    
-    color: #F9AE00;
-    
+.color_orange{    
+    color: #F9AE00 !important;    
+}
+.color_white{
+    color: #ffffff !important;   
 }
 
 .nav_transparent{
@@ -369,4 +370,15 @@ p {
 
 .active{    
     color: #F9AE00 !important;
+}
+
+div .title_box{
+ 
+ margin-top: 50px;
+  margin-bottom: 50px;
+    
+}
+div .title_box h2{
+    font-size: 50px !important;
+        
 }
