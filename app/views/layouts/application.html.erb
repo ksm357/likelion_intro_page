@@ -3,7 +3,13 @@
 <head>
     <title>LikeLion_Kookmin</title>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="/assets/bootstrap.min.css" type="text/css">
+    <!--<link rel="stylesheet" href="/assets/bootstrap.min.css" type="text/css">-->
+    <!--<link rel="stylesheet" href="/assets/bootstrap-theme.min.css" type="text/css">-->
+    <!-- 합쳐지고 최소화된 최신 CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+<!-- 부가적인 테마 -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="/assets/animate.min.css" type="text/css">
     <link rel="stylesheet" href="/assets/font-awesome.min.css" type="text/css">
     <link rel="stylesheet" href="/assets/normalize.css" type="text/css">
@@ -17,7 +23,31 @@
     <%#= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
 </head>
-<body>
+<body> 
+        
+    <div id="preloader">
+        <!--<i class="fa fa-spinner fa-pulse fa-3x fa-fw margin-bottom"></i>-->
+    </div>   
+    <div class="container">
+        <nav class="navbar nav_transparent">
+            <div class="navbar-header">
+                <div class="logo">
+                    <a href="#"><h2 class="color_orange">LikeLion_Kookmin</h2></a>
+                </div>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+              <ul id="main_menu" class="nav navbar-nav">
+                <li><a class="active" href="#">Home</a></li>
+                <li><a href="#">Member</a></li>
+                <li><a href="#">Board</a></li>
+              </ul>
+              <ul class="nav navbar-nav navbar-right">
+                <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+              </ul>
+            </div>
+        </nav>        
+    </div>
 
     <%= yield %>
     

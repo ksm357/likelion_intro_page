@@ -54,7 +54,11 @@ h6 {
 }
 
 html,
-body {}
+body {
+    background: url(/assets/background.jpg);
+    background-size: cover;
+    background-position: center center
+}
 
 .section_padding {
     padding: 80px 0px
@@ -68,15 +72,13 @@ p {
 /************** main css ******************/
 /************** header css ******************/
 
-#header_area {
-    background: url(/assets/background.jpg);
+#header_area {   
     padding-top: 35px;
-    background-size: cover;
-    background-position: center center
 }
 
 .logo {
     margin-top: 5px;
+    margin-right : 50px;
 }
 
 .logo h2 {}
@@ -357,4 +359,14 @@ p {
     
     color: #F9AE00;
     
+}
+
+.nav_transparent{
+    padding-top : 10px;
+    background-color: transparent !important; 
+    border-color: transparent !important; 
+}
+
+.active{    
+    color: #F9AE00 !important;
 }
