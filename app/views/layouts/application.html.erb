@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>LikeLion_Kookmin</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="/assets/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="/assets/animate.min.css" type="text/css">
+    <link rel="stylesheet" href="/assets/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="/assets/normalize.css" type="text/css">
+    <link rel="stylesheet" href="/assets/responsive.css" type="text/css">
+    <link rel="stylesheet" href="/assets/style.css" type="text/css">
+    
+    
+    <%= stylesheet_link_tag 'application'%>
+    <%= javascript_include_tag 'application'%>
+    <%#= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%#= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+</head>
+<body>
+
+    <%= yield %>
+    
+    
+    <!--J-Query-->
+    <script src="/assets/jquery-1.12.0.min.js" type="text/javascript"></script>
+    <!--bootstrap-->
+    <script src="/assets/bootstrap.min.js" type="text/javascript"></script>
+    <!-- wow js -->
+    <script src="/assets/wow.min.js" type="text/javascript"></script>
+    <script>
+        new WOW().init();
+    </script>
+    <!-- main js -->
+    <script src="/assets/main.js" type="text/javascript"></script>
+</body>
+</html>
