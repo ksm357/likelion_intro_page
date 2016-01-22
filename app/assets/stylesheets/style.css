@@ -216,11 +216,10 @@ p {
 
 .say {
     text-align: right;
-    width: 90%;
     margin-top: 10px
 }
 
-.say h5 {
+.say h4 {
     margin: 0;
     color: #000
 }
@@ -231,11 +230,12 @@ p {
 }
 
 .c_img {
-    width: 10%;
-    text-align: right
+    padding-left: 0;
+    text-align: right;    
 }
 
 .c_img img {
+    width: 100%;    
     border-radius: 50%
 }
 
