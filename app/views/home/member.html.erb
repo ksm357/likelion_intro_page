@@ -1,24 +1,4 @@
 <div class="container">
-    <nav class="navbar nav_transparent">
-        <div class="navbar-header">
-            <div class="logo">
-                <a href="#"><h2 class="color_orange">LikeLion_Kookmin</h2></a>
-            </div>
-        </div>
-        <div class="collapse navbar-collapse" id="myNavbar">
-          <ul id="main_menu" class="nav navbar-nav navbar-right">
-            <li><a href="/home/index">Home</a></li>
-            <li><a class="active" href="#">Member</a></li>
-            <li><a href="/home/board">Board</a></li>
-          </ul>
-          <!--<ul class="nav navbar-nav navbar-right">-->
-          <!--  <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>-->
-          <!--  <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>-->
-          <!--</ul>-->
-        </div>
-    </nav>        
-</div>   
-<div class="container">
     <div class="row">
         <div class="col-md-12 text-center">
             <div class="title_box">
@@ -108,5 +88,10 @@ $(function(){
         var $grid = $('.masonry').masonry({
             itemSelector: '.masonry-item',
         });   
+});
+
+$(function() {
+    $("a#link_member").attr("href", "#");
+    $("a#link_member").addClass("active");
 });
 </script>
