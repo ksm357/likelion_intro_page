@@ -402,8 +402,24 @@ div .title_box h2{
     height: 100%;
     background-color: white;          
     border-radius:30px;    
-    padding: 20px 30px 20px 30px;
+    padding: 0px 30px 20px 30px;
     -moz-box-shadow: 4px 4px 10px 5px rgba(10,10,0,.5);
     -webkit-box-shadow: 4px 4px 10px 5px rgba(10,10,0,.5);
     box-shadow: 4px 4px 15px 3px rgba(10,10,0,.5);
+}
+
+.write_button_margin{
+    
+    margin-top: 20px;
+    
+}
+
+
+.textarea_content{
+     resize: none;   
+}
+
+hr .margin_none{
+    
+    margin-top: 0px !important;
 }
