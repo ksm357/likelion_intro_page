@@ -12,12 +12,12 @@
                 <form action="/home/write_post" method="POST">
                   <div class="form-group">
                     <label>Title</label>
-                    <input class="form-control" name="title" placeholder="Title">
+                    <input class="form-control" name="title" placeholder="Title" required>
                   </div>
                   <div class="form-group">
                     <label>Content</label>
-                    <textarea id="pagedown" name="content" class="form-control textarea_content" rows="20" placeholder="Content"></textarea>
-                  </div>
+                    <textarea id="pagedownMe" name="content" class="form-control textarea_content wmd-input" rows="20" placeholder="Content" required></textarea>
+                  </div>                  
                   <button class="btn btn-default alignright" type="submit">Submit</button>
                 </form>
             </div>
@@ -27,7 +27,12 @@
 
 <script>
 $(function() {
+    //navbar change color
     $("a#link_board").attr("href", "#");
     $("a#link_board").addClass("active");
+    
+    //write editor
+    $("textarea#pagedownMe").pagedownBootstrap();
 });
+
 </script>

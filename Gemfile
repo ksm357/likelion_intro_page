@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+# MarkDown
+gem 'redcarpet', '~> 3.0.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.4'
