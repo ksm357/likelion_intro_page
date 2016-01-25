@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-# MarkDown
+# Markdown Parser
 gem 'redcarpet', '~> 3.0.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
