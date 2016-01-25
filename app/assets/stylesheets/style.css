@@ -423,3 +423,9 @@ hr .margin_none{
     
     margin-top: 0px !important;
 }
+
+.bottom_hr{
+    padding-bottom: 6px;
+    margin-bottom: 6px;
+    border-bottom: 1px solid #eee;   
+}

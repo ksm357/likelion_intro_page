@@ -10,11 +10,15 @@ class HomeController < ApplicationController
   end
   
   def write_post
-   if request.method == "POST"
+    if request.method == "POST"
       @post = Post.create(
                           title: params[:title],
                           content: params[:content])
       redirect_to "/home/board"
     end
+  end
+  
+  def board_detail
+      @post = Post.find(params[:id])
   end
 end

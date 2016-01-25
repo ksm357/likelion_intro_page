@@ -1,0 +1,20 @@
+<div class="padding_container">
+    <div class="board_container">
+        
+        <div class="row">
+            <div class="col-md-12">
+                <h2 class="bottom_hr"><%= @post.title %></h1>
+            </div>
+            <div class="col-md-12">
+                <h5><%= @post.content %></h5>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+$(function() {
+    $("a#link_board").attr("href", "#");
+    $("a#link_board").addClass("active");
+});
+</script>
