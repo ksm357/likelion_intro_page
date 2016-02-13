@@ -1,3 +1,69 @@
 // Place all the styles related to the member controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+/*** member/list.html ***/
+div .title_box{
+
+ margin-top: 50px;
+  margin-bottom: 50px;
+
+}
+div .title_box h2{
+    font-size: 50px !important;
+
+}
+
+#clients_say_area {
+    background: #fff;
+    position: relative
+}
+
+#clients_say_area h2 {
+    padding-bottom: 50px;
+}
+
+.clients_say {
+    margin-bottom: 30px;
+}
+
+.clients_say_box{
+    background-color: rgba(255,255,255,0.2);
+}
+.clients_say_list {
+    margin-top: 20px;
+}
+
+.clients_say p {
+    border: 2px solid #E3E3E3;
+    padding: 20px 40px;
+}
+
+.fix {
+    overflow: hidden
+}
+
+.say {
+    text-align: right;
+}
+
+.say h3 {
+    margin: 4px 4px 8px 4px;
+    color: #000
+}
+
+.say h6 {
+    margin: 4px;
+    color: #b8b8b8;
+}
+
+.c_img {
+    padding-left: 0;
+    vertical-align: middle;
+    text-align: right;
+}
+
+.c_img img {
+    width: 100%;
+    border-radius: 50%
+}
