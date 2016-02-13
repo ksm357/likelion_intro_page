@@ -1,15 +1,15 @@
 <div class="padding_container">
     <div class="board_container">
-        
+
         <div class="row">
             <div class="col-md-12">
-                <h2 class="floatleft">BOARD</h2>        
+                <h2 class="floatleft">BOARD</h2>
             </div>
             <div class="col-md-12">
                 <hr class="color_black">
             </div>
             <div class="col-md-12">
-                <form action="/home/write_post" method="POST">
+                <form action="/board/write_post" method="POST">
                   <div class="form-group">
                     <label>Title</label>
                     <input class="form-control" name="title" placeholder="Title" required>
@@ -17,7 +17,7 @@
                   <div class="form-group">
                     <label>Content</label>
                     <textarea id="pagedownMe" name="content" class="form-control" rows="20" placeholder="Content" required></textarea>
-                  </div>                  
+                  </div>
                   <button class="btn btn-default alignright" type="submit">Submit</button>
                 </form>
             </div>
@@ -30,7 +30,7 @@ $(function() {
     //navbar change color
     $("a#link_board").attr("href", "#");
     $("a#link_board").addClass("active");
-    
+
     //write editor
     $("textarea#pagedownMe").pagedownBootstrap();
 });

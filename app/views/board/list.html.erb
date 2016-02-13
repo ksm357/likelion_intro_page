@@ -1,14 +1,14 @@
 <div class="padding_container">
     <div class="board_container wow fadeIn">
-        
+
         <div class="row">
             <div class="col-md-12 bottom_hr">
-                <h2 class="floatleft">BOARD</h2>        
-                <a class="btn btn-default alignright write_button_margin" href="/home/write_post">write</a>   
+                <h2 class="floatleft">BOARD</h2>
+                <a class="btn btn-default alignright write_button_margin" href="/board/write_post">write</a>
             </div>
             <% @post_list.each do |post| %>
                 <div class="col-md-1"><h5><%= post.id %></h5></div>
-                <a href="/home/board_detail/<%=post.id%>">
+                <a href="/board/detail/<%=post.id%>">
                     <div class="col-md-8"><h5><%= post.title %></h5></div>
                 </a>
                 <div class="col-md-3"><h5 class="alignright"><%= post.created_at %></h5></div>

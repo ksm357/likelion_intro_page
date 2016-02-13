@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
   
+  get 'board/list'
+
+  get 'member/list'
+
   root :to => "home#index"
   match ":controller(/:action(/:id))", :via => [:get, :post]
 
