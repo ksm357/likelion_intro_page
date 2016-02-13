@@ -1,11 +1,11 @@
 <div class="padding_container">
     <div class="board_container">
-        
+
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-12"><!-- 글 제목 -->
                 <h2 class="bottom_hr"><%= @post.title %></h1>
             </div>
-            <div class="col-md-12">
+            <div class="col-md-12"><!-- 글 내용 -->
                 <h5><%= markdown(@post.content) %></h5>
             </div>
         </div>

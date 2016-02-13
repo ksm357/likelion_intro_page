@@ -1,9 +1,9 @@
 class BoardController < ApplicationController
-  def list
+  def list # 게시글 리스트
        @post_list = Post.all.reverse
   end
 
-  def write_post
+  def write_post # 게시글 작성
     if request.method == "POST"
       @post = Post.create(
                           title: params[:title],
@@ -12,7 +12,7 @@ class BoardController < ApplicationController
     end
   end
 
-  def detail
+  def detail # 게시글 상세
       @post = Post.find(params[:id])
   end
 end

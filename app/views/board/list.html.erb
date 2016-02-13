@@ -6,6 +6,7 @@
                 <h2 class="floatleft">BOARD</h2>
                 <a class="btn btn-default alignright write_button_margin" href="/board/write_post">write</a>
             </div>
+            <!-- post list -->
             <% @post_list.each do |post| %>
                 <div class="col-md-1"><h5><%= post.id %></h5></div>
                 <a href="/board/detail/<%=post.id%>">
@@ -14,7 +15,6 @@
                 <div class="col-md-3"><h5 class="alignright"><%= post.created_at %></h5></div>
                 <div class="col-md-12 bottom_hr"></div>
             <% end %>
-            <!--<div class="col-md-2"></div>        -->
         </div>
     </div>
 </div>
