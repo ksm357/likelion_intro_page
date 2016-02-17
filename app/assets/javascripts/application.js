@@ -14,7 +14,6 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require bootstrap.min
-//= require materialize-sprockets
 //= require jquery.pagedown-bootstrap.combined.min
 //= require main
 //= require masonry.pkgd.min
