@@ -1,20 +1,27 @@
-<div class="padding_container">
-    <div class="board_container">
-
-        <div class="row">
-            <div class="col-md-12"><!-- 글 제목 -->
-                <h2 class="bottom_hr"><%= @post.title %></h1>
-            </div>
-            <div class="col-md-12"><!-- 글 내용 -->
-                <h5><%= markdown(@post.content) %></h5>
-            </div>
-        </div>
+<div class="container">
+  <div class="content_section">
+    <div class="title_box">
+        <h2 class="wow fadeInDown">
+            Board
+        </h2>
+        <a class="btn btn-default write_button wow fadeIn" href="/board/list" role="button">
+          <i class="fa fa-arrow-left fa-lg"> list</i>
+        </a>
     </div>
-</div>
+    <p class="text-label">Title</p>
+    <div class="border-title">
+      <p><%= @post.title %></p>
+    </div>
+    <p class="text-label">Content</p>
+    <div class="border-content">
+      <p><%= markdown(@post.content) %></p>
+    </div>
+  </div><!--content_section-->
+</div><!--container-->
 
 <script>
 $(function() {
     $("a#link_board").attr("href", "#");
-    $("a#link_board").addClass("active_menu");
+    $("a#link_board").addClass("menu-selected");
 });
 </script>

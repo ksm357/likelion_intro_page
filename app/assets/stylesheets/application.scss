@@ -1,0 +1,23 @@
+// variables
+@import "variables.scss";
+// bootstrap
+@import "bootstrap-theme.min.css";
+@import "bootstrap.min.css";
+//font-awesome
+@import "font-awesome-sprockets";
+@import "font-awesome";
+//
+@import "animate.min.css";
+@import "normalize.css";
+@import "responsive.css";
+
+//custom
+@import "base.scss";
+@import "board.scss";
+@import "home.scss";
+@import "member.scss";
+
+//font
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700);
+@import url(http://fonts.googleapis.com/earlyaccess/jejugothic.css);
+@import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css);

@@ -60,7 +60,7 @@
         margin-bottom: 10px;
         margin-top: 10px
     }
-    .clients_say p::before {
+    .member_say p::before {
         display: none
     }
     .say {
@@ -69,10 +69,10 @@
     .c_img {
         width: 15%
     }
-    .clients_say p {
+    .member_say p {
         padding: 10px;
     }
-    .clients_say {
+    .member_say {
         margin-bottom: 60px;
     }
     .skills h2 {

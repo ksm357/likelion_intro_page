@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+# font-awesome
+gem 'font-awesome-sass', '~> 4.5.0'
 # Markdown Parser
 gem 'redcarpet', '~> 3.0.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

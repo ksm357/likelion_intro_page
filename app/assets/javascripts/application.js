@@ -13,4 +13,16 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require_tree .
+//= require bootstrap.min
+//= require materialize-sprockets
+//= require jquery.pagedown-bootstrap.combined.min
+//= require main
+//= require masonry.pkgd.min
+//= require wow.min
+(function ($) {
+	"use strict";
+    jQuery(window).load(function(){
+        // Preloader
+        $("#preloader").fadeOut(500);
+    });
+}(jQuery));
