@@ -5,18 +5,11 @@
             Board
         </h2>
         <a class="btn btn-default write_button wow fadeIn" href="/board/write_post" role="button">
-          <i class="fa fa-pencil fa-lg"> write</i>
+          <i class="fa fa-pencil fa-lg"></i> write
         </a>
     </div>
     <!-- board -->
     <table class="table">
-      <!-- <thead>
-        <th class="table-number">#</th>
-        <th class="table-title">제목</th>
-        <th class="table-author">작성자</th>
-        <th class="table-time">작성일</th>
-        <th class="table-count">조회수</th>
-      </thead> -->
       <tbody>
         <% @post_list.each do |post| %>
         <tr>
@@ -29,8 +22,12 @@
             </a>
             <span><i class="fa fa-user"></i> guest</span>
             <span class="text_bar"></span>
-            <span><i class="fa fa-clock-o"></i> <%= post.created_at %></span>
-            <span class="floatright">조회수 0</span>
+            <span>
+              <i class="fa fa-clock-o"></i> <%= post.created_at.in_time_zone("Seoul").strftime("%Y.%m.%d %H:%M") %>
+            </span>
+            <span class="floatright">
+              조회 <%= post.hits %>
+            </span>
           </th>
         </tr>
         <% end %>

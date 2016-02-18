@@ -14,8 +14,10 @@
 ActiveRecord::Schema.define(version: 20160124163017) do
 
   create_table "posts", force: :cascade do |t|
+    t.integer  "board_id"
     t.string   "title"
     t.text     "content"
+    t.integer  "hits"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
