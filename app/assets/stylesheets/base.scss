@@ -28,6 +28,15 @@ html {
   background-color: $color-side-background;
 }
 
+//info_section LikeLion logo area
+.area_logo{
+  position: fixed;
+  left:80px;
+  bottom: 10px;
+  width:90px;
+  height: 90px;
+}
+
 // 내용 부분 (right section)
 .content_section{
   font-family: $font-noto;
@@ -73,7 +82,7 @@ div .title_box h2{
 
 //sidebar
 #sidebar-wrapper {
-    z-index: 999;
+    z-index: 1000;
     width: 0;
     height: 100%;
     overflow-y: auto;
@@ -209,7 +218,7 @@ div .title_box h2{
 .hamburger {
   position: fixed;
   top: 20px;
-  z-index: 1000;
+  z-index: 1001;
   display: block;
   width: 32px;
   height: 32px;

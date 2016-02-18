@@ -1,6 +1,6 @@
 class BoardController < ApplicationController
   def list # 게시글 리스트
-       @post_list = Post.all.reverse       
+       @post_list = Post.all.reverse
   end
 
   def write_post # 게시글 작성
