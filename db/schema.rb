@@ -14,8 +14,12 @@
 ActiveRecord::Schema.define(version: 20160222163817) do
 
   create_table "guest_posts", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "name"
+    t.string   "encrypted_password"
+    t.text     "content"
+    t.boolean  "boolean"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
   end
 
   create_table "posts", force: :cascade do |t|

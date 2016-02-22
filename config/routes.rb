@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+  get 'guestbook/list'
+
   get 'board/list'
 
   get 'member/list'
