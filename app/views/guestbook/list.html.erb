@@ -46,7 +46,7 @@
               <i class="fa fa-clock-o"></i> <%= guest_post.created_at.in_time_zone("Seoul").strftime("%Y.%m.%d %H:%M") %>
             </div>
             <h4 class="guest_content">
-              <%= guest_post.content %>
+              <%= guest_post.content.gsub(/\r\n/, '<br/>').html_safe %>
             </h4>
           </li>
         <% end %>
