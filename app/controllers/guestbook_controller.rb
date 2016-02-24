@@ -7,7 +7,7 @@ class GuestbookController < ApplicationController
                           name: params[:name],
                           encrypted_password: params[:password],
                           content: params[:content],
-                          is_secret: params[:check])
+                          is_secret: params[:is_secret])
       redirect_to "/guestbook/list"
     end
   end

@@ -42,6 +42,7 @@ html {
   font-family: $font-noto;
   padding-left: 250px;
   min-height: 800px;
+  min-width:600px;
 }
 
 div .title_box{
@@ -163,7 +164,7 @@ div .title_box h2{
     background-color: #C02942;
 }
 .sidebar-nav li:nth-child(5):before {
-    background-color: #279636;
+    background-color: #542437;
 }
 // .sidebar-nav li:nth-child(6):before {
 //     background-color: #7d5d81;

@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 20160222163817) do
     t.string   "name"
     t.string   "encrypted_password"
     t.text     "content"
-    t.boolean  "boolean"
+    t.boolean  "is_secret"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
   end

@@ -1,2 +1,79 @@
-<h1>Guestbook#list</h1>
-<p>Find me in app/views/guestbook/list.html.erb</p>
+<div class="container">
+  <div class="content_section">
+    <div class="title_box">
+        <h2 class="wow fadeInDown">
+            Guest Book
+        </h2>
+    </div>
+    <form action="/guestbook/list" method="POST">
+      <fieldset class="guest_form_field">
+        <div class="guest_form row">
+          <div class="col-md-3 col-xs-5">
+            <input class="form-control" name="name" placeholder="Name" maxlength="20" required>
+          </div>
+          <div class="col-md-3 col-xs-5 form_password">
+            <input class="form-control" name="password" placeholder="Password" type="password" maxlength="20" required>
+          </div>
+          <div class="col-md-3 col-xs-2 form_secret">
+            <input type="checkbox" name="is_secret" value="true"> Secret
+          </div>
+        </div>
+        <div class="form-group">
+          <textarea name="content" class="form-control guest_form_content" rows="6" placeholder="방명록을 남겨 주세요." required></textarea>
+        </div>
+        <button class="btn btn-default submit_button" type="submit">
+          <i class="fa fa-check fa-lg"></i> Submit
+        </button>
+      </fieldset>
+    </form>
+    <ul class="list_default_style">
+      <% @guest_post_list.each do |guest_post| %>
+        <% if guest_post.is_secret %>
+          <li class="list_secret_item">
+            <div class="guest_date">
+              <i class="fa fa-clock-o"></i> <%= guest_post.created_at.in_time_zone("Seoul").strftime("%Y.%m.%d %H:%M") %>
+            </div>
+            <h4 class="guest_secret_message">
+              <i class="fa fa-question fa-2x"></i> 비밀 메시지 입니다.
+            </h4>
+          </li>
+        <% else %>
+          <li class="list_public_item">
+            <h2 class="guest_name">
+              <i class="fa fa-user"></i> <%= guest_post.name %>
+            </h2>
+            <div class="guest_date">
+              <i class="fa fa-clock-o"></i> <%= guest_post.created_at.in_time_zone("Seoul").strftime("%Y.%m.%d %H:%M") %>
+            </div>
+            <h4 class="guest_content">
+              <%= guest_post.content %>
+            </h4>
+          </li>
+        <% end %>
+
+      <% end %>
+    </ul>
+    <!-- <form action="/board/write_post" method="POST">
+      <div class="form-group">
+        <input class="form-control" name="name" placeholder="Name" maxlength="20" required>
+      </div>
+      <div class="form-group">
+        <input class="form-control" name="password" placeholder="Password" type="password" maxlength="20" required>
+      </div>
+      <div class="form-group">
+        <textarea name="content" class="form-control guest_post" rows="20" placeholder="방명록을 남겨 주세요." required></textarea>
+      </div>
+      <button class="btn btn-default submit_button" type="submit">
+        <i class="fa fa-check fa-lg"></i> Submit
+      </button>
+    </form> -->
+  </div><!--content_section-->
+</div><!--container-->
+
+<script>
+$(function() {
+    //navbar change color
+    $("a#link_guest_book").attr("href", "#");
+    $("a#link_guest_book").addClass("menu-selected");
+});
+</script>

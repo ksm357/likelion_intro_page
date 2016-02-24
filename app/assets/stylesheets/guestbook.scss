@@ -1,3 +1,66 @@
 // Place all the styles related to the guestbook controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.guest_form_field{
+  border: 0 none;
+  .guest_form{
+    input{
+      border-radius: 0px;
+    }
+    .form_password{
+      padding-left: 0px;
+      padding-bottom: 15px;
+    }
+    .form_secret{
+      padding: 8px 0px;
+    }
+  }
+  .guest_form_content{
+    resize: none;
+    border-radius: 0px;
+  }
+  .submit_button{
+    float: right;
+  }
+}
+
+.list_default_style{
+  padding-left: 0px;
+  list-style: none;
+  .list_secret_item{
+    list-style: none;
+    border-top: 1px solid $color-hr;
+    padding: 10px 0px 0px 0px;
+  }
+  .list_public_item{
+    list-style: none;
+    border-top: 1px solid $color-hr;
+    padding: 30px 0px 30px 0px;
+    .guest_date{
+      margin-top: -20px;
+    }
+  }
+  .guest_date{
+    float: right;
+    color: $color-light-text;
+    font-size: 12px;
+  }
+  .guest_secret_message{
+    font-size:20px;
+    font-weight:400;
+    padding:10px 20px 20px 20px;
+  }
+  .guest_name{
+    display: inline;
+    padding: 0px 20px;
+    font-size: 20px;
+    font-weight:400;
+  }
+  .guest_content{
+    font-size:14px;
+    font-weight:400;
+    color: $color-light-text;
+    padding:0px 40px 0px 40px;
+  }
+}
