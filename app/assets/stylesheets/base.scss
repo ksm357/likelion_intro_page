@@ -31,10 +31,10 @@ html {
 //info_section LikeLion logo area
 .area_logo{
   position: fixed;
-  left:50px;
+  left:25px;
   bottom: 10px;
-  width:150px;
-  height: 150px;
+  width:200px;
+  height: 200px;
 }
 // .area_logo{
 //   position: fixed;
@@ -58,7 +58,7 @@ div .title_box{
 }
 div .title_box h2{
     font-family: $font-title;
-    font-weight: 700;    
+    font-weight: 700;
     font-size: 35px;
     display: inline;
 }
@@ -105,6 +105,7 @@ div .title_box h2{
 }
 
 #page-content-wrapper {
+    // background-image: url("/assets/likelionkookmin_cover.png");
     width: 100%;
     padding-top: 70px;
 }
@@ -156,21 +157,25 @@ div .title_box h2{
        -ms-transition:  width .2s ease-in;
             transition: width .2s ease-in;
 }
-.sidebar-nav li:first-child a {
-    color: #fff;
+
+.sidebar-nav li:first-child a{
+    padding-top: 15px;
+    padding-left: 15px;
+    font-size: 20px;
+    font-weight: 700;
     background-color: transparent;
 }
 .sidebar-nav li:nth-child(2):before{
-    background-color: #ECD078;
+    background-color: #f9bc00;
 }
 .sidebar-nav li:nth-child(3):before{
-    background-color: #D95B43;
+    background-color: #61c300;
 }
 .sidebar-nav li:nth-child(4):before{
-    background-color: #C02942;
+    background-color: #ee6800;
 }
 .sidebar-nav li:nth-child(5):before {
-    background-color: #542437;
+    background-color: #004685;
 }
 // .sidebar-nav li:nth-child(6):before {
 //     background-color: #7d5d81;
