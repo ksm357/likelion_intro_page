@@ -31,17 +31,24 @@ html {
 //info_section LikeLion logo area
 .area_logo{
   position: fixed;
-  left:80px;
+  left:50px;
   bottom: 10px;
-  width:90px;
-  height: 90px;
+  width:150px;
+  height: 150px;
 }
+// .area_logo{
+//   position: fixed;
+//   left:20px;
+//   bottom: 10px;
+//   width:210px;
+//   height: 35px;
+// }
 
 // 내용 부분 (right section)
 .content_section{
   font-family: $font-noto;
   padding-left: 250px;
-  min-height: 800px;
+  min-height: 700px;
   min-width:600px;
 }
 
@@ -350,6 +357,7 @@ div .title_box h2{
   line-height: 30px;
   color: #aaa;
   text-align: center;
+  min-width:600px;
 }
 
 .area_footer h2{
@@ -363,11 +371,13 @@ div .title_box h2{
 }
 
 .footer_logo{
-  margin-top: 10px;
+  margin-top: 5px;
+  width:270px;
+  height:45px;
   float:left;
 }
 .footer_link{
-  margin-top: 10px;
+  margin-top: 5px;
   float:right;
   text-align:right;
 }
