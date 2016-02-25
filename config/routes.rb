@@ -1,15 +1,4 @@
 Rails.application.routes.draw do
-
-  get 'load/main'
-
-  get 'load/main'
-
-  get 'guestbook/list'
-
-  get 'board/list'
-
-  get 'member/list'
-
   root :to => "load#main"
   match ":controller(/:action(/:id))", :via => [:get, :post]
 

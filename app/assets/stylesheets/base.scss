@@ -196,7 +196,7 @@ div .title_box h2{
     background-color: #ee6800;
 }
 .sidebar-nav li:nth-child(5):before {
-    background-color: #004685;
+    background-color: #003b8d;
 }
 // .sidebar-nav li:nth-child(6):before {
 //     background-color: #7d5d81;
@@ -375,10 +375,31 @@ div .title_box h2{
  /*-------------------------------*/
 .area_header{
   padding-left: 250px;
-  height:70px;
-  color: #aaa;
-  text-align: center;
+  height:100px;
   min-width:600px;
+}
+.header_box{
+  float:right;
+}
+.header_logo{
+  width :250px;
+  height: 50px;
+}
+.header_private_menu{
+  padding-right: 15px;
+  float:right;
+  height:20px;
+  a,
+  a:hover,
+  a:focus{
+    color:$color-orange;
+    text-decoration: none;
+  }
+  h5{
+    color:#003b8d;
+    font-weight: 700;
+    margin:0px;
+  }
 }
 /*-------------------------------*/
 /*       footer         */
@@ -388,20 +409,10 @@ div .title_box h2{
   padding-left: 250px;
   margin-top: 20px;
   height:50px;
-  border-top: 1px solid $color-hr;
-  line-height: 30px;
-  color: #aaa;
-  text-align: center;
   min-width:600px;
 }
 
-.area_footer h2{
-  font-weight: bold;
-  color: $color-orange;
-  margin:5px 5px;
-}
 .area_footer h6{
-  color: $color-light-text;
   margin:5px 5px;
 }
 
