@@ -1,0 +1,17 @@
+<div id="preloader">
+    <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+</div>
+
+<script>
+  $(function(){
+  	"use strict";
+      jQuery(window).load(function(){
+          // Preloader
+        $("#preloader").fadeOut(500);
+        window.location.replace("/load/ok");
+        // $.ajax({
+        //   url: "/load/ok",
+        // });
+      });
+  });
+</script>

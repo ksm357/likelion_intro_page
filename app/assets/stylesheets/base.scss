@@ -29,7 +29,6 @@ html {
   height: 40%;
 }
 
-
 .nav .open > a,
 .nav .open > a:hover,
 .nav .open > a:focus {background-color: transparent;}
@@ -130,7 +129,6 @@ div .title_box h2{
 #page-content-wrapper {
     // background-image: url("/assets/likelionkookmin_cover.png");
     width: 100%;
-    padding-top: 70px;
 }
 
 /*-------------------------------*/
@@ -372,6 +370,16 @@ div .title_box h2{
      color: $color-orange !important;
  }
 
+ /*-------------------------------*/
+ /*       header         */
+ /*-------------------------------*/
+.area_header{
+  padding-left: 250px;
+  height:70px;
+  color: #aaa;
+  text-align: center;
+  min-width:600px;
+}
 /*-------------------------------*/
 /*       footer         */
 /*-------------------------------*/
@@ -428,8 +436,11 @@ div .title_box h2{
      height: 100%;
      position: fixed;
      width: 100%;
+     left:0px;
+     top:0px;
      z-index: 9999;
  }
+
  #preloader i {
      left: 50%;
      margin-left: -15px;

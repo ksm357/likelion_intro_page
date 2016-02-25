@@ -1,12 +1,16 @@
 Rails.application.routes.draw do
-  
+
+  get 'load/main'
+
+  get 'load/main'
+
   get 'guestbook/list'
 
   get 'board/list'
 
   get 'member/list'
 
-  root :to => "home#index"
+  root :to => "load#main"
   match ":controller(/:action(/:id))", :via => [:get, :post]
 
   # The priority is based upon order of creation: first created -> highest priority.

@@ -18,10 +18,3 @@
 //= require main
 //= require masonry.pkgd.min
 //= require wow.min
-(function ($) {
-	"use strict";
-    jQuery(window).load(function(){
-        // Preloader
-        $("#preloader").fadeOut(500);
-    });
-}(jQuery));
