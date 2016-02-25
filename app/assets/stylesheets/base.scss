@@ -9,6 +9,27 @@ html {
   font-family: $font-title;
   color: $color-text;
 }
+
+.background_top{
+  z-index: 0;
+  position:fixed;
+  left: 250px;
+  padding-right: 250px;
+  top:0px;
+  width: 100%;
+  height: 40%;
+}
+.background_bottom{
+  z-index: 0;
+  position:fixed;
+  left: 250px;
+  padding-right: 250px;
+  bottom:0px;
+  width: 100%;
+  height: 40%;
+}
+
+
 .nav .open > a,
 .nav .open > a:hover,
 .nav .open > a:focus {background-color: transparent;}
@@ -46,6 +67,8 @@ html {
 
 // 내용 부분 (right section)
 .content_section{
+  position: relative;
+  z-index:10;
   font-family: $font-noto;
   padding-left: 250px;
   min-height: 700px;
