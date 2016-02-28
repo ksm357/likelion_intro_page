@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   root :to => "load#main"
   match ":controller(/:action(/:id))", :via => [:get, :post]
 
