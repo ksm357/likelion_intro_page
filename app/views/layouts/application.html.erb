@@ -33,13 +33,19 @@
            <div class="header_logo">
              <img width="100%" height="100%" src="/assets/likelionkookmin_logo.png">
            </div>
-           <!-- <div class="header_private_menu">
+           <div class="header_private_menu">
              <h5>
-               <a href="#">로그인</a>
-               |
-               <a href="#">회원가입</a>
+               <% if user_signed_in?%>
+                 <span class="email"><%= current_user.email%></span>
+                 |
+                 <a href="/users/sign_out">로그아웃</a>
+               <% else %>
+                 <a href="/users/sign_in">로그인</a>
+                 |
+                 <a href="/users/sign_up">회원가입</a>
+               <% end %>
              </h5>
-           </div> -->
+           </div>
          </div>
        </div>
        <%= yield %>
