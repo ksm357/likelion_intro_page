@@ -1,3 +1,26 @@
 .submit_margin{
   margin-top: 10px;
 }
+
+.field{
+  .inline-block{
+    display: inline-block;
+  }
+  h4{
+    margin-top: 15px;
+    margin-bottom: 5px;
+  }
+
+  .input_area{
+    width: 240px;
+  }
+  .introduction_area{
+    resize: none;
+    width: 400px;
+  }
+
+  .warning_message{
+    color: #d20000;
+    display: none;
+  }
+}

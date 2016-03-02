@@ -4,30 +4,27 @@
         <h2>
             Log in
         </h2>
-        <!-- <a class="btn btn-default write_button wow fadeIn" href="/board/write_post" role="button">
-          <i class="fa fa-pencil fa-lg"></i> write
-        </a> -->
     </div>
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <div class="field">
-        <%= f.label :email %><br />
-        <%= f.email_field :email, autofocus: true %>
+        <% f.label :email %><h4>이메일</h4>
+        <%= f.email_field :email, class: "form-control input_area", autofocus: true %>
       </div>
 
       <div class="field">
-        <%= f.label :password %><br />
-        <%= f.password_field :password, autocomplete: "off" %>
+        <% f.label :password %><h4>비밀번호</h4>
+        <%= f.password_field :password, class: "form-control input_area", autocomplete: "off" %>
       </div>
 
-      <% if devise_mapping.rememberable? -%>
+      <!-- <% if devise_mapping.rememberable? -%>
         <div class="field">
           <%= f.check_box :remember_me %>
           <%= f.label :remember_me %>
         </div>
-      <% end -%>
+      <% end -%> -->
 
       <div class="actions">
-        <button class="btn btn-default" type="submit">
+        <button class="btn btn-default submit_margin" type="submit">
           <i class="fa fa-sign-in fa-lg"></i> Log in
           <!-- <%=f.submit "Log in", class: "btn btn-default"%> -->
         </button>
