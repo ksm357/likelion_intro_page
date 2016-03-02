@@ -18,6 +18,11 @@
         <li>
             <a id="link_guest_book" href="/guestbook/list">Guest Book</a>
         </li>
+        <% if user_signed_in? && current_user.role == "guest" %>
+          <li>
+              <a id="link_admin" href="/admin/user_list">Admin</a>
+          </li>
+        <% end %>
     </ul>
 </nav>
 <!-- /#sidebar-wrapper -->

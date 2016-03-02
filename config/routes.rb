@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'admin/user_list'
+
   devise_for :users, controllers: { sessions: "users/sessions" }
   # devise_for :users
   root :to => "load#main"
