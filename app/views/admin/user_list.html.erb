@@ -4,6 +4,127 @@
         <h2>
             Admin
         </h2>
-    </div>   
+    </div>
+    <table class="table user_list">
+      <thead>
+        <tr>
+        <th>이름</th>
+        <th>이메일</th>
+        <th>전공</th>
+        <th>폰번호</th>
+        <th>등급</th>
+        <th>관리</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @user_list.each do |user| %>
+        <tr>
+          <td><%=user.name%></td>
+          <td><%=user.email%></td>
+          <td><%=user.major%></td>
+          <td><%=user.phone_number%></td>
+          <td><%=user.role%></td>
+          <td>
+            <a type="button" class="btn btn-primary"
+               data-toggle="modal" data-target="#modifyModal" data-id="<%=user.id%>"
+               data-name="<%=user.name%>" data-major="<%=user.major%>" data-role="<%=user.role%>"
+               data-phonenumber="<%=user.phone_number%>" data-introduction="<%=user.introduction%>">
+               수정
+            </a>
+            <a type="button" class="btn btn-danger"
+               data-toggle="modal" data-target="#deleteModal" data-id="<%=user.id%>">탈퇴</a>
+          </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
   </div>
 </div>
+
+
+// 삭제 모달
+<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="exampleModalLabel">Delete</h4>
+      </div>
+      <form action="/admin/user_delete" enctype="multipart/form-data" method="POST">
+          <input id="delete_id" type="hidden" name="user_id">
+          <div class="modal-body">
+            <h3>
+                정말 삭제하시겠습니까?
+            </h3>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+            <button type="submit" class="btn btn-danger">Delete</button>
+          </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+// 수정 모달
+<div class="modal fade" id="modifyModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="exampleModalLabel">Modify</h4>
+      </div>
+      <form action="/admin/user_modify" enctype="multipart/form-data" method="POST">
+          <input id="modify_id" type="hidden" name="user_id">
+          <div class="modal-body">
+             <div class="panel panel-default">
+                <div class="panel-body">
+                    <label for="modify_name">이름</label>
+                    <input type="text" name="user_name" class="form-control" id="modify_name" required>
+                    <label for="modify_major">전공</label>
+                    <input type="text" name="user_major" class="form-control" id="modify_major" required>
+                    <label for="modify_phonenumber">휴대폰 번호</label>
+                    <input type="text" name="user_phonenumber" class="form-control" id="modify_phonenumber" required>
+                    <label for="modify_role">등급</label>
+                    <input type="text" name="user_role" class="form-control" id="modify_role" required>
+                    <label for="modify_introduction">소개</label>
+                    <textarea class="form-control textarea_style" id="modify_introduction" name="user_introduction"
+                              required></textarea>
+                </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Modify</button>
+          </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+<script>
+    $('#deleteModal').on('shown.bs.modal', function (event) {
+      var button = $(event.relatedTarget); // Button that triggered the modal
+      var modal = $(this);
+      document.getElementById('delete_id').value = button.data('id');
+    });
+
+    $('#modifyModal').on('shown.bs.modal', function (event) {
+      var button = $(event.relatedTarget); // Button that triggered the modal
+      var modal = $(this);
+      // document.getElementById('modify_id').value = button.data('id');
+      document.getElementById('modify_id').value = button.data('id');
+      document.getElementById('modify_name').value = button.data('name');
+      document.getElementById('modify_phonenumber').value = button.data('phonenumber');
+      document.getElementById('modify_major').value = button.data('major');
+      document.getElementById('modify_role').value = button.data('role');
+      document.getElementById('modify_introduction').innerHTML = button.data('introduction');
+
+      // document.getElementById('modify_major').src = button.data('major');
+      // modal.find('.modify_id').val(id);
+      // modal.find('.modify_name').val(name);
+      // modal.find('.modify_image').val(image);
+      // modal.find('.modify_content').val(content);
+    });
+</script>
