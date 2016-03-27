@@ -8,15 +8,23 @@
     <form action="/guestbook/list" method="POST">
       <fieldset class="guest_form_field">
         <div class="guest_form row">
-          <div class="col-md-3 col-xs-5">
-            <input class="form-control" name="name" placeholder="Name" maxlength="20" required>
-          </div>
-          <div class="col-md-3 col-xs-5 form_password">
-            <input class="form-control" name="password" placeholder="Password" type="password" maxlength="20" required>
-          </div>
-          <!-- <div class="col-md-3 col-xs-2 form_secret">
-            <input type="checkbox" name="is_secret" value="true"> Secret
-          </div> -->
+          <% if user_signed_in? %>
+            <div class="col-md-12">
+                <h3>
+                  <i class="fa fa-user"></i> <%= current_user.name %>
+                </h3>
+            </div>
+          <% else %>
+            <div class="col-md-3 col-xs-5">
+              <input class="form-control" name="name" placeholder="Name" maxlength="20" required>
+            </div>
+            <div class="col-md-3 col-xs-5 form_password">
+              <input class="form-control" name="password" placeholder="Password" type="password" maxlength="20" required>
+            </div>
+            <!-- <div class="col-md-3 col-xs-2 form_secret">
+              <input type="checkbox" name="is_secret" value="true"> Secret
+            </div>-->
+          <% end %>
         </div>
         <div class="form-group">
           <textarea name="content" class="form-control guest_form_content" rows="6" placeholder="방명록을 남겨 주세요." required></textarea>
@@ -40,9 +48,18 @@
         <% else %>
           <li class="list_public_item">
             <h2 class="guest_name">
-              <i class="fa fa-user"></i> <%= guest_post.name %>
+                <i class="fa fa-user"></i> <%= guest_post.name %>
             </h2>
             <div class="guest_date">
+              <% if user_signed_in? && guest_post.user != nil%>
+                <% if guest_post.user.id == current_user.id %>
+                  <a href="#">수정</a>
+                  <a href="#">삭제</a>
+                <% end %>
+              <% elsif guest_post.user == nil %>
+                <a href="#">수정</a>
+                <a href="#">삭제</a>
+              <% end %>
               <i class="fa fa-clock-o"></i> <%= guest_post.created_at.in_time_zone("Seoul").strftime("%Y.%m.%d %H:%M") %>
             </div>
             <h4 class="guest_content">
