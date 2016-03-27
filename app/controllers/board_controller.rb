@@ -4,6 +4,9 @@ class BoardController < ApplicationController
   end
 
   def write_post # 게시글 작성
+    if !(user_signed_in? && current_user.role == "admin")
+      redirect_to '/'
+    end
     if request.method == "POST"
       @post = Post.create(
                           board_id: params[:id],

@@ -4,9 +4,11 @@
         <h2>
             Board
         </h2>
-        <!-- <a class="btn btn-default write_button wow fadeIn" href="/board/write_post" role="button">
-          <i class="fa fa-pencil fa-lg"></i> write
-        </a> -->
+        <% if user_signed_in? && current_user.role == "admin" %>
+          <a class="btn btn-default write_button wow fadeIn" href="/board/write_post" role="button">
+            <i class="fa fa-pencil fa-lg"></i> write
+          </a>
+        <% end %>
     </div>
     <!-- board -->
     <table class="table">
