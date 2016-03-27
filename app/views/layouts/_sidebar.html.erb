@@ -18,7 +18,8 @@
         <li>
             <a id="link_guest_book" href="/guestbook/list">Guest Book</a>
         </li>
-        <% if user_signed_in? && current_user.role == "guest" %>
+        <!-- admin 페이지 -->
+        <% if user_signed_in? && current_user.role == "admin" %>
           <li>
               <a id="link_admin" href="/admin/user_list">Admin</a>
           </li>

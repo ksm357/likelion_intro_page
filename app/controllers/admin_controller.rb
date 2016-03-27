@@ -1,5 +1,9 @@
 class AdminController < ApplicationController
   def user_list
+    # url로 접근 제한
+    if !(user_signed_in? && current_user.role == "admin")
+      redirect_to '/'
+    end
     @user_list = User.all
   end
 
