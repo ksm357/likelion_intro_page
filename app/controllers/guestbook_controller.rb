@@ -19,4 +19,13 @@ class GuestbookController < ApplicationController
       redirect_to "/guestbook/list"
     end
   end
+
+  # 로그인 상태에서 수정 Action
+  def modify_log_in
+    guest_post = GuestPost.find(params[:guest_post_id])
+    guest_post.content = params[:guest_post_content]
+    guest_post.save
+    redirect_to :back
+  end
+
 end
