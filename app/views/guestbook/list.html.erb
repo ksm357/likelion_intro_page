@@ -53,12 +53,13 @@
             <div class="guest_date">
               <% if user_signed_in? && guest_post.user != nil%>
                 <% if guest_post.user.id == current_user.id %>
-                  <a href="#" data-toggle="modal" data-target="#modifyModal" data-id="<%=guest_post.id%>"
-                    data-content="<%=guest_post.content%>">수정</a>
-                  <a href="#">삭제</a>
+                  <a href="#" data-toggle="modal" data-target="#modifyModalLogIn" data-id="<%=guest_post.id%>"
+                    data-content="<%=guest_post.content%>">수정</a> |
+                  <a href="#" data-toggle="modal" data-target="#deleteModalLogIn" data-id="<%=guest_post.id%>">삭제</a>
                 <% end %>
               <% elsif !user_signed_in? && guest_post.user == nil %>
-                <a href="#" >수정</a>
+                <a href="#" data-toggle="modal" data-target="#modifyModalNotLogIn" data-id="<%=guest_post.id%>"
+                  data-name="<%=guest_post.name%>" data-content="<%=guest_post.content%>"> 수정</a> |
                 <a href="#">삭제</a>
               <% end %>
               <i class="fa fa-clock-o"></i> <%= guest_post.created_at.in_time_zone("Seoul").strftime("%Y.%m.%d %H:%M") %>
@@ -73,16 +74,16 @@
   </div><!--content_section-->
 </div><!--container-->
 
-<!-- 삭제 모달 -->
-<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<!-- 로그인 삭제 모달 -->
+<div class="modal fade" id="deleteModalLogIn" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title" id="exampleModalLabel">Delete</h4>
       </div>
-      <form action="/guestbook/delete_guest_post" enctype="multipart/form-data" method="POST">
-          <input id="delete_id" type="hidden" name="user_id">
+      <form action="/guestbook/delete_log_in" enctype="multipart/form-data" method="POST">
+          <input id="delete_id" type="hidden" name="guest_post_id">
           <div class="modal-body">
             <h3>
                 정말 삭제하시겠습니까?
@@ -98,7 +99,7 @@
 </div>
 
 <!-- 로그인 수정 모달 -->
-<div class="modal fade" id="modifyModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="modifyModalLogIn" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -110,7 +111,8 @@
           <div class="modal-body">
              <div class="panel panel-default">
                 <div class="panel-body">
-                    <textarea class="form-control textarea_style" id="modify_content" name="guest_post_content"
+                  <label for="modify_content">내용</label>
+                  <textarea class="form-control textarea_style" id="modify_content" name="guest_post_content"
                               required></textarea>
                 </div>
             </div>
@@ -124,6 +126,39 @@
   </div>
 </div>
 
+<!-- 로그아웃 수정 모달 -->
+<div class="modal fade" id="modifyModalNotLogIn" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="exampleModalLabel">Modify</h4>
+      </div>
+      <form action="/guestbook/modify_not_log_in" enctype="multipart/form-data" method="POST">
+        <input id="modify_id_not_log_in" type="hidden" name="guest_post_id">
+        <div class="modal-body">
+           <div class="panel panel-default">
+              <div class="panel-body">
+                <label for="modify_name">이름</label>
+                <input type="text" name="guest_post_name" class="form-control" id="modify_name" required>
+                <label for="modify_content">내용</label>
+                <textarea class="form-control textarea_style" id="modify_content_not_log_in" name="guest_post_content"
+                            required></textarea>
+                <label for="modify_password">비밀번호 확인</label>
+                <input type="password" name="guest_post_password" class="form-control" id="modify_password" required>
+              </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary">Modify</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
 <script>
 $(function() {
     //navbar change color
@@ -131,23 +166,25 @@ $(function() {
     $("a#link_guest_book").addClass("menu-selected");
 });
 
-$('#deleteModal').on('shown.bs.modal', function (event) {
+$('#deleteModalLogIn').on('shown.bs.modal', function (event) {
   var button = $(event.relatedTarget); // Button that triggered the modal
   var modal = $(this);
-  document.getElementById('delete_id').value = button.data('id');
+  $("#delete_id").val(button.data('id'));
 });
 
-$('#modifyModal').on('shown.bs.modal', function (event) {
+$('#modifyModalLogIn').on('shown.bs.modal', function (event) {
   var button = $(event.relatedTarget); // Button that triggered the modal
   var modal = $(this);
-  document.getElementById('modify_id').value = button.data('id');
-  document.getElementById('modify_content').innerHTML = button.data('content');
+  $("#modify_id").val(button.data('id'));
+  $("#modify_content").html(button.data('content'));
+});
 
-  // document.getElementById('modify_major').src = button.data('major');
-  // modal.find('.modify_id').val(id);
-  // modal.find('.modify_name').val(name);
-  // modal.find('.modify_image').val(image);
-  // modal.find('.modify_content').val(content);
+$('#modifyModalNotLogIn').on('shown.bs.modal', function (event) {
+  var button = $(event.relatedTarget); // Button that triggered the modal
+  var modal = $(this);
+  $("#modify_id_not_log_in").val(button.data('id'));
+  $("#modify_content_not_log_in").html(button.data('content'));
+  $("#modify_name").val(button.data('name'));
 });
 
 </script>

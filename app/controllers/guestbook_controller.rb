@@ -9,12 +9,14 @@ class GuestbookController < ApplicationController
                             name: current_user.name,
                             content: params[:content],
                             is_secret: params[:is_secret])
+        @guest_post.save
       else
         @guest_post = GuestPost.create(
                             name: params[:name],
                             encrypted_password: params[:password],
                             content: params[:content],
                             is_secret: params[:is_secret])
+        @guest_post.save
       end
       redirect_to "/guestbook/list"
     end
@@ -25,6 +27,23 @@ class GuestbookController < ApplicationController
     guest_post = GuestPost.find(params[:guest_post_id])
     guest_post.content = params[:guest_post_content]
     guest_post.save
+    redirect_to :back
+  end
+
+  def modify_not_log_in
+    guest_post = GuestPost.find(params[:guest_post_id])
+    if guest_post.encrypted_password == params[:guest_post_password]
+      guest_post.name = params[:guest_post_name]
+      guest_post.content = params[:guest_post_content]
+      guest_post.save
+    end
+    redirect_to :back
+  end
+
+  # 로그인 상태에서 삭제 Action
+  def delete_log_in
+    guest_post = GuestPost.find(params[:guest_post_id])
+    guest_post.destroy
     redirect_to :back
   end
 
