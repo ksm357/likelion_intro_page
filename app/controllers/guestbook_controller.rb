@@ -30,6 +30,7 @@ class GuestbookController < ApplicationController
     redirect_to :back
   end
 
+  # 로그아웃 상태에서 수정 Action
   def modify_not_log_in
     guest_post = GuestPost.find(params[:guest_post_id])
     if guest_post.encrypted_password == params[:guest_post_password]
@@ -44,6 +45,15 @@ class GuestbookController < ApplicationController
   def delete_log_in
     guest_post = GuestPost.find(params[:guest_post_id])
     guest_post.destroy
+    redirect_to :back
+  end
+
+  # 로그아웃 상태에서 삭제 Action
+  def delete_not_log_in
+    guest_post = GuestPost.find(params[:guest_post_id])
+    if guest_post.encrypted_password == params[:guest_post_password]
+      guest_post.destroy
+    end
     redirect_to :back
   end
 
