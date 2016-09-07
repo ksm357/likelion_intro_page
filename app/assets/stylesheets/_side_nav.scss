@@ -1,6 +1,33 @@
 // .nav .open > a,
 // .nav .open > a:hover,
 // .nav .open > a:focus {background-color: transparent;}
+#wrapper.toggled {
+
+}
+#wrapper.toggled #sidebar-wrapper {
+    width: 250px;
+}
+#wrapper.toggled #page-content-wrapper {
+    position: absolute;
+}
+#wrapper.toggled .hamburger{
+  margin-left: 180px;
+}
+#sidebar-wrapper {
+    z-index: 1000;
+    width: 0;
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    background: rgba(0, 0, 0, 0.3);
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+#sidebar-wrapper::-webkit-scrollbar {
+  display: none;
+}
 
 //sidebar 생성 시 사라 지는 부분 (left_section)
 .side-nav-wrap{

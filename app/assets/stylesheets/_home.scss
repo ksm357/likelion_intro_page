@@ -1,14 +1,13 @@
-.title_box .title_first{
-  color: $color-orange;
-  font-size: 50px;
-}
-
-.title_box .title_second{
-  color :$color-orange;
-  font-size: 30px;
-}
-
-.title_box .title_third{
-  color :$color-yellow-green;
-  font-size: 50px;
+.title_box {
+  .index_title {
+    font-size: 45px;
+    color: $color-orange;
+    .preposition {
+      font-size: 25px;
+    }
+    .title_univ {
+      font-style: normal;
+      color :$color-yellow-green;
+    }
+  }
 }

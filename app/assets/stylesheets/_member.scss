@@ -1,42 +1,41 @@
-// Place all the styles related to the member controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-
-/*** member/list.html ***/
+// member
 .member_say {
-    margin-bottom: 30px;
-}
-.member_say p {
+  margin-bottom: 30px;
+  .description {
     background: rgba(225, 225, 225, .3);
     border: 1px solid $color-grey;
     color: $color-text;
     padding: 20px 20px;
+  }
 }
-
 .member_info {
-    margin-top: 20px;
+    margin-top: 10px;
+    &:after {
+      @extend %clearfix;
+    }
 }
-.member_info h3 {
+.member_content {
+  float:right;
+  .member_name {
+    display: block;
     text-align: right;
-    margin: 4px 4px 8px 4px;
+    font-size: 24px;
     color: $color-text;
-}
-.member_info h6 {
+  }
+  .member_detail {
+    display: block;
     text-align: right;
-    margin: 4px;
+    font-size: 12px;
+    font-weight: bold;
     color: $color-light-text;
+  }
 }
-.fix {
-    overflow: hidden
-}
-
 .member_profile {
-    padding-left: 0;
-    vertical-align: middle;
-    text-align: right;
-}
-
-.member_profile img {
-    width: 100%;
-    border-radius: 50%
+  float: right;
+  margin: 8px 0 0 10px;
+  vertical-align: middle;
+  text-align: right;
+  &_thumb {
+      border-radius: 50%
+  }
 }

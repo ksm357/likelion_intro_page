@@ -1,15 +1,13 @@
+html,
 body {
-    position: relative;
-    overflow-x: hidden;
-}
-body,
-html {
   height: 100%;
   background-color: white;
   font-family: $font-title;
   color: $color-text;
 }
-
+body {
+  overflow-x: hidden;
+}
 .background_top{
   z-index: 0;
   position:fixed;
@@ -28,44 +26,16 @@ html {
   width: 100%;
   height: 40%;
 }
-
-// 내용 부분 (right section)
-.content_section{
-  position: relative;
-  z-index:10;
-  font-family: $font-noto;
-  padding-left: 250px;
-  min-height: 700px;
-  min-width:600px;
+// global
+%clearfix {
+  display: block;
+  overflow: hidden;
+  clear: both;
+  height: 0;
+  content: '';
 }
 
-div .title_box{
-    // border-bottom: 1px solid $color-hr;
-    margin-bottom: 20px;
-}
-div .title_box h2{
-    font-family: $font-title;
-    font-weight: 700;
-    font-size: 35px;
-    display: inline;
-}
-
-.hr-default-style{
-    margin-top: 5px;
-    margin-bottom: 5px;
-    border: 0;
-    border-top: 1px solid $color-hr;
-}
-.hr-highlight-style{
-    margin-top: 5px;
-    margin-bottom: 5px;
-    border: 0;
-    border-top: 1px solid $color-light-text;
-}
-
-/*-------------------------------*/
-/*           Wrappers            */
-/*-------------------------------*/
+// wrapper
 #wrapper {
   height: 100%;
     -webkit-transition: all 0.5s ease;
@@ -73,44 +43,50 @@ div .title_box h2{
     -o-transition: all 0.5s ease;
     transition: all 0.5s ease;
 }
-
-//sidebar
-#sidebar-wrapper {
-    z-index: 1000;
-    width: 0;
-    height: 100%;
-    overflow-y: auto;
-    overflow-x: hidden;
-    background: rgba(0, 0, 0, 0.3);
-    -webkit-transition: all 0.5s ease;
-    -moz-transition: all 0.5s ease;
-    -o-transition: all 0.5s ease;
-    transition: all 0.5s ease;
-}
-#sidebar-wrapper::-webkit-scrollbar {
-  display: none;
-}
-
 #page-content-wrapper {
     // background-image: url("/assets/likelionkookmin_cover.png");
     width: 100%;
+    height: 100%;
+    .content {
+      min-height: 100%;
+      margin-top: -$header-footer-height;
+      // 내용 부분 (right section)
+      &_section{
+        position: relative;
+        padding-top: $header-footer-height;
+        z-index:10;
+        font-family: $font-noto;
+        padding-left: 250px;
+        // min-height: 700px;
+        min-width:600px;
+      }
+    }
 }
 
-/*-------------------------------*/
-/*        SideMenu Open          */
-/*-------------------------------*/
-#wrapper.toggled {
 
+div .title_box {
+    // border-bottom: 1px solid $color-hr;
+    margin-bottom: 20px;
 }
-#wrapper.toggled #sidebar-wrapper {
-    width: 250px;
+div .title_box h2 {
+    font-family: $font-title;
+    font-weight: 700;
+    font-size: 35px;
 }
-#wrapper.toggled #page-content-wrapper {
-    position: absolute;
+
+.hr-default-style {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border: 0;
+    border-top: 1px solid $color-hr;
 }
-#wrapper.toggled .hamburger{
-  margin-left: 180px;
+.hr-highlight-style {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border: 0;
+    border-top: 1px solid $color-light-text;
 }
+
 
  /* float */
  .floatleft {
@@ -130,6 +106,7 @@ div .title_box h2{
   float:right;
 }
 .header_logo{
+  margin: 0;
   width :250px;
   height: 50px;
 }
@@ -153,8 +130,8 @@ div .title_box h2{
 // footer
 .area_footer {
   padding-left: 250px;
-  margin-top: 20px;
-  height:50px;
+  margin-top: 30px;
+  height:40px;
   min-width:600px;
 }
 
@@ -165,12 +142,11 @@ div .title_box h2{
   float:left;
 }
 .footer{
-  margin-top: 5px;
-  float:right;
   text-align:right;
   &_info,
   &_copy {
-    margin: 5px;
+    margin: 0 5px;
+    line-height: 20px;
     font-size: 12px;
   }
   &_info {
