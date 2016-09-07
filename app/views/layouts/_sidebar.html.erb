@@ -1,29 +1,37 @@
-<!-- Sidebar -->
-<nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation">
-      <ul class="nav sidebar-nav">
-        <li class="sidebar-brand">
-            <a href="/home/index">
-               likelion_kookmin
-            </a>
-        </li>
-        <li>
-            <a id="link_index" href="/home/index">Home</a>
-        </li>
-        <li>
-            <a id="link_member" href="/member/list">Member</a>
-        </li>
-        <li>
-            <a id="link_board" href="/board/list">Board</a>
-        </li>
-        <li>
-            <a id="link_guest_book" href="/guestbook/list">Guest Book</a>
-        </li>
-        <!-- admin 페이지 -->
-        <% if user_signed_in? && current_user.role == "admin" %>
-          <li>
-              <a id="link_admin" href="/admin/user_list">Admin</a>
+<div class="side-nav-wrap">
+  <button type="button" class="hamburger is-closed" data-toggle="offcanvas">
+    <span class="hamb-top"></span>
+    <span class="hamb-middle"></span>
+    <span class="hamb-bottom"></span>
+  </button>
+  <div class="area_logo">
+    <img width="100%" height="100%" src="/assets/likelionkookmin_bi.png">
+  </div>
+  <nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper">
+        <ul class="nav sidebar-nav">
+          <li class="sidebar-brand">
+              <a href="/home/index">
+                 likelion_kookmin
+              </a>
           </li>
-        <% end %>
-    </ul>
-</nav>
-<!-- /#sidebar-wrapper -->
+          <li>
+              <a id="link_index" href="/home/index">Home</a>
+          </li>
+          <li>
+              <a id="link_member" href="/member/list">Member</a>
+          </li>
+          <li>
+              <a id="link_board" href="/board/list">Board</a>
+          </li>
+          <li>
+              <a id="link_guest_book" href="/guestbook/list">Guest Book</a>
+          </li>
+          <!-- admin 페이지 -->
+          <% if user_signed_in? && current_user.role == "admin" %>
+            <li>
+                <a id="link_admin" href="/admin/user_list">Admin</a>
+            </li>
+          <% end %>
+      </ul>
+  </nav>
+</div>

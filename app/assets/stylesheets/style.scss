@@ -1,5 +1,5 @@
 //variables
-@import "variables.scss";
+@import "_variables.scss";
 //bootstrap
 @import "bootstrap-theme.min.css";
 @import "bootstrap.min.css";
@@ -12,14 +12,14 @@
 @import "responsive.css";
 
 //custom
-@import "base.scss";
-@import "load.scss";
-@import "board.scss";
-@import "home.scss";
-@import "member.scss";
-@import "guestbook.scss";
-@import "devise.scss";
-@import "admin.scss";
+@import "_base.scss";
+@import "_side_nav";
+@import "_board.scss";
+@import "_home.scss";
+@import "_member.scss";
+@import "_guestbook.scss";
+@import "_devise.scss";
+@import "_admin.scss";
 
 //font
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700);

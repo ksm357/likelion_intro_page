@@ -1,40 +1,9 @@
-body {
-    position: relative;
-    overflow-x: hidden;
-}
-body,
-html {
-  height: 100%;
-  background-color: white;
-  font-family: $font-title;
-  color: $color-text;
-}
-
-.background_top{
-  z-index: 0;
-  position:fixed;
-  left: 250px;
-  padding-right: 250px;
-  top:0px;
-  width: 100%;
-  height: 40%;
-}
-.background_bottom{
-  z-index: 0;
-  position:fixed;
-  left: 250px;
-  padding-right: 250px;
-  bottom:0px;
-  width: 100%;
-  height: 40%;
-}
-
-.nav .open > a,
-.nav .open > a:hover,
-.nav .open > a:focus {background-color: transparent;}
+// .nav .open > a,
+// .nav .open > a:hover,
+// .nav .open > a:focus {background-color: transparent;}
 
 //sidebar 생성 시 사라 지는 부분 (left_section)
-.info_section{
+.side-nav-wrap{
   position: fixed;
   top: 0;
   bottom: 0;
@@ -46,110 +15,17 @@ html {
   overflow-x: hidden;
   overflow-y: auto;
   background-color: $color-side-background;
+
+  .area_logo{
+    position: fixed;
+    left:25px;
+    bottom: 10px;
+    width:200px;
+    height: 200px;
+  }
 }
 
-//info_section LikeLion logo area
-.area_logo{
-  position: fixed;
-  left:25px;
-  bottom: 10px;
-  width:200px;
-  height: 200px;
-}
-// .area_logo{
-//   position: fixed;
-//   left:20px;
-//   bottom: 10px;
-//   width:210px;
-//   height: 35px;
-// }
 
-// 내용 부분 (right section)
-.content_section{
-  position: relative;
-  z-index:10;
-  font-family: $font-noto;
-  padding-left: 250px;
-  min-height: 700px;
-  min-width:600px;
-}
-
-div .title_box{
-    // border-bottom: 1px solid $color-hr;
-    margin-bottom: 20px;
-}
-div .title_box h2{
-    font-family: $font-title;
-    font-weight: 700;
-    font-size: 35px;
-    display: inline;
-}
-
-.hr-default-style{
-    margin-top: 5px;
-    margin-bottom: 5px;
-    border: 0;
-    border-top: 1px solid $color-hr;
-}
-.hr-highlight-style{
-    margin-top: 5px;
-    margin-bottom: 5px;
-    border: 0;
-    border-top: 1px solid $color-light-text;
-}
-
-/*-------------------------------*/
-/*           Wrappers            */
-/*-------------------------------*/
-#wrapper {
-  height: 100%;
-    -webkit-transition: all 0.5s ease;
-    -moz-transition: all 0.5s ease;
-    -o-transition: all 0.5s ease;
-    transition: all 0.5s ease;
-}
-
-//sidebar
-#sidebar-wrapper {
-    z-index: 1000;
-    width: 0;
-    height: 100%;
-    overflow-y: auto;
-    overflow-x: hidden;
-    background: rgba(0, 0, 0, 0.3);
-    -webkit-transition: all 0.5s ease;
-    -moz-transition: all 0.5s ease;
-    -o-transition: all 0.5s ease;
-    transition: all 0.5s ease;
-}
-#sidebar-wrapper::-webkit-scrollbar {
-  display: none;
-}
-
-#page-content-wrapper {
-    // background-image: url("/assets/likelionkookmin_cover.png");
-    width: 100%;
-}
-
-/*-------------------------------*/
-/*        SideMenu Open          */
-/*-------------------------------*/
-#wrapper.toggled {
-
-}
-#wrapper.toggled #sidebar-wrapper {
-    width: 250px;
-}
-#wrapper.toggled #page-content-wrapper {
-    position: absolute;
-}
-#wrapper.toggled .hamburger{
-  margin-left: 180px;
-}
-
-/*-------------------------------*/
-/*     Sidebar nav styles        */
-/*-------------------------------*/
 .sidebar-nav {
     position: absolute;
     top: 0;
@@ -201,15 +77,7 @@ div .title_box h2{
 .sidebar-nav li:nth-child(6):before {
     background-color: $color-light-text;
 }
-// .sidebar-nav li:nth-child(7):before {
-//     background-color: #ead24c;
-// }
-// .sidebar-nav li:nth-child(8):before {
-//     background-color: #2d2366;
-// }
-// .sidebar-nav li:nth-child(9):before {
-//     background-color: #35acdf;
-// }
+
 .sidebar-nav li:hover:before,
 .sidebar-nav li.open:hover:before {
     width: 100%;
@@ -245,9 +113,8 @@ div .title_box h2{
   font-size: 20px;
   font-weight: bold;
 }
-/*-------------------------------*/
-/*       sidemenu_button         */
-/*-------------------------------*/
+
+
 .hamburger {
   position: fixed;
   top: 20px;
@@ -273,13 +140,25 @@ div .title_box h2{
   text-align: center;
   opacity: 0;
   -webkit-transform: translate3d(0,0,0);
+  -moz-transform: translate3d(0,0,0);
+  -ms-transform: translate3d(0,0,0);
+  -o-transform: translate3d(0,0,0);
+  transform: translate3d(0,0,0);
   -webkit-transition: all .35s ease-in-out;
+  -moz-transition: all .35s ease-in-out;
+  transition: all .35s ease-in-out;
 }
 .hamburger.is-closed:hover:before {
   opacity: 1;
   display: block;
   -webkit-transform: translate3d(-100px,0,0);
+  -moz-transform: translate3d(-100px,0,0);
+  -ms-transform: translate3d(-100px,0,0);
+  -o-transform: translate3d(-100px,0,0);
+  transform: translate3d(-100px,0,0);
   -webkit-transition: all .35s ease-in-out;
+  -moz-transition: all .35s ease-in-out;
+  transition: all .35s ease-in-out;
 }
 
 .hamburger.is-closed .hamb-top,
@@ -301,6 +180,8 @@ div .title_box h2{
 .hamburger.is-closed .hamb-top {
   top: 5px;
   -webkit-transition: all .35s ease-in-out;
+  -moz-transition: all .35s ease-in-out;
+  transition: all .35s ease-in-out;
 }
 .hamburger.is-closed .hamb-middle {
   top: 50%;
@@ -309,15 +190,21 @@ div .title_box h2{
 .hamburger.is-closed .hamb-bottom {
   bottom: 5px;
   -webkit-transition: all .35s ease-in-out;
+  -moz-transition: all .35s ease-in-out;
+  transition: all .35s ease-in-out;
 }
 
 .hamburger.is-closed:hover .hamb-top {
   top: 0;
   -webkit-transition: all .35s ease-in-out;
+  -moz-transition: all .35s ease-in-out;
+  transition: all .35s ease-in-out;
 }
 .hamburger.is-closed:hover .hamb-bottom {
   bottom: 0;
   -webkit-transition: all .35s ease-in-out;
+  -moz-transition: all .35s ease-in-out;
+  transition: all .35s ease-in-out;
 }
 .hamburger.is-open .hamb-top,
 .hamburger.is-open .hamb-middle,
@@ -331,12 +218,24 @@ div .title_box h2{
 }
 .hamburger.is-open .hamb-top {
   -webkit-transform: rotate(45deg);
-  -webkit-transition: -webkit-transform .2s cubic-bezier(.73,1,.28,.08);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+  -webkit-transition: all .2s cubic-bezier(.73,1,.28,.08);
+  -moz-transition: all .2s cubic-bezier(.73,1,.28,.08);
+  transition: all .2s cubic-bezier(.73,1,.28,.08);
 }
 .hamburger.is-open .hamb-middle { display: none; }
 .hamburger.is-open .hamb-bottom {
   -webkit-transform: rotate(-45deg);
-  -webkit-transition: -webkit-transform .2s cubic-bezier(.73,1,.28,.08);
+  -moz-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  -webkit-transition: all .2s cubic-bezier(.73,1,.28,.08);
+  -moz-transition: all .2s cubic-bezier(.73,1,.28,.08);
+  transition: all .2s cubic-bezier(.73,1,.28,.08);
 }
 .hamburger.is-open:before {
   content: '';
@@ -348,99 +247,23 @@ div .title_box h2{
   text-align: center;
   opacity: 0;
   -webkit-transform: translate3d(0,0,0);
+  -moz-transform: translate3d(0,0,0);
+  -ms-transform: translate3d(0,0,0);
+  -o-transform: translate3d(0,0,0);
+  transform: translate3d(0,0,0);
   -webkit-transition: all .35s ease-in-out;
+  -moz-transition: all .35s ease-in-out;
+  transition: all .35s ease-in-out;
 }
 .hamburger.is-open:hover:before {
   opacity: 1;
   display: block;
   -webkit-transform: translate3d(-100px,0,0);
+  -moz-transform: translate3d(-100px,0,0);
+  -ms-transform: translate3d(-100px,0,0);
+  -o-transform: translate3d(-100px,0,0);
+  transform: translate3d(-100px,0,0);
   -webkit-transition: all .35s ease-in-out;
-}
-
- /* float */
- .floatleft {
-     float: left
- }
- .floatright {
-     float: right
- }
-
- /* color */
- .color_orange{
-     color: $color-orange !important;
- }
-
- /*-------------------------------*/
- /*       header         */
- /*-------------------------------*/
-.area_header{
-  padding-left: 250px;
-  height:100px;
-  min-width:600px;
-}
-.header_box{
-  float:right;
-}
-.header_logo{
-  width :250px;
-  height: 50px;
-}
-.header_private_menu{
-  padding-right: 15px;
-  float:right;
-  height:20px;
-  a,
-  a:hover,
-  a:focus{
-    color:$color-orange;
-    text-decoration: none;
-  }
-  h5{
-    color:#003b8d;
-    font-weight: 700;
-    margin:0px;
-  }
-  .email{
-    color:$color-orange;
-  }
-}
-/*-------------------------------*/
-/*       footer         */
-/*-------------------------------*/
-
-.area_footer {
-  padding-left: 250px;
-  margin-top: 20px;
-  height:50px;
-  min-width:600px;
-}
-
-.area_footer h6{
-  margin:5px 5px;
-}
-
-.footer_logo{
-  margin-top: 5px;
-  width:270px;
-  height:45px;
-  float:left;
-}
-.footer_link{
-  margin-top: 5px;
-  float:right;
-  text-align:right;
-}
-
-/*** no use ***/
-.overlay {
-    position: fixed;
-    display: none;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(250,250,250,.8);
-    z-index: 1;
+  -moz-transition: all .35s ease-in-out;
+  transition: all .35s ease-in-out;
 }

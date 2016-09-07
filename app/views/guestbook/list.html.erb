@@ -61,6 +61,7 @@
                 <a href="#" data-toggle="modal" data-target="#modifyModalNotLogIn" data-id="<%=guest_post.id%>"
                   data-name="<%=guest_post.name%>" data-content="<%=guest_post.content%>"> 수정</a> |
                 <a href="#" data-toggle="modal" data-target="#deleteModalNotLogIn" data-id="<%=guest_post.id%>">삭제</a>
+        ls
               <% end %>
               <i class="fa fa-clock-o"></i> <%= guest_post.created_at.in_time_zone("Seoul").strftime("%Y.%m.%d %H:%M") %>
             </div>

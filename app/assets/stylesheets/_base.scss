@@ -1,0 +1,205 @@
+body {
+    position: relative;
+    overflow-x: hidden;
+}
+body,
+html {
+  height: 100%;
+  background-color: white;
+  font-family: $font-title;
+  color: $color-text;
+}
+
+.background_top{
+  z-index: 0;
+  position:fixed;
+  left: 250px;
+  padding-right: 250px;
+  top:0px;
+  width: 100%;
+  height: 40%;
+}
+.background_bottom{
+  z-index: 0;
+  position:fixed;
+  left: 250px;
+  padding-right: 250px;
+  bottom:0px;
+  width: 100%;
+  height: 40%;
+}
+
+// 내용 부분 (right section)
+.content_section{
+  position: relative;
+  z-index:10;
+  font-family: $font-noto;
+  padding-left: 250px;
+  min-height: 700px;
+  min-width:600px;
+}
+
+div .title_box{
+    // border-bottom: 1px solid $color-hr;
+    margin-bottom: 20px;
+}
+div .title_box h2{
+    font-family: $font-title;
+    font-weight: 700;
+    font-size: 35px;
+    display: inline;
+}
+
+.hr-default-style{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border: 0;
+    border-top: 1px solid $color-hr;
+}
+.hr-highlight-style{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border: 0;
+    border-top: 1px solid $color-light-text;
+}
+
+/*-------------------------------*/
+/*           Wrappers            */
+/*-------------------------------*/
+#wrapper {
+  height: 100%;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+//sidebar
+#sidebar-wrapper {
+    z-index: 1000;
+    width: 0;
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    background: rgba(0, 0, 0, 0.3);
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+#sidebar-wrapper::-webkit-scrollbar {
+  display: none;
+}
+
+#page-content-wrapper {
+    // background-image: url("/assets/likelionkookmin_cover.png");
+    width: 100%;
+}
+
+/*-------------------------------*/
+/*        SideMenu Open          */
+/*-------------------------------*/
+#wrapper.toggled {
+
+}
+#wrapper.toggled #sidebar-wrapper {
+    width: 250px;
+}
+#wrapper.toggled #page-content-wrapper {
+    position: absolute;
+}
+#wrapper.toggled .hamburger{
+  margin-left: 180px;
+}
+
+ /* float */
+ .floatleft {
+     float: left
+ }
+ .floatright {
+     float: right
+ }
+
+// header
+.area_header{
+  padding-left: 250px;
+  height:100px;
+  min-width:600px;
+}
+.header_box{
+  float:right;
+}
+.header_logo{
+  width :250px;
+  height: 50px;
+}
+.header_private_menu{
+  height:20px;
+  text-align: right;
+  color:$color-navy;
+  font-weight: 700;
+  margin:0px;
+  padding-right: 15px;
+  a,
+  a:hover,
+  a:focus{
+    color:$color-orange;
+    text-decoration: none;
+  }
+  .user_email{
+    color:$color-orange;
+  }
+}
+// footer
+.area_footer {
+  padding-left: 250px;
+  margin-top: 20px;
+  height:50px;
+  min-width:600px;
+}
+
+.footer_logo{
+  margin-top: 5px;
+  width:270px;
+  height:45px;
+  float:left;
+}
+.footer{
+  margin-top: 5px;
+  float:right;
+  text-align:right;
+  &_info,
+  &_copy {
+    margin: 5px;
+    font-size: 12px;
+  }
+  &_info {
+    .admin_info {
+      font-weight: normal;
+    }
+    .admin_link {
+      color: $color-navy;
+      font-weight: normal;
+    }
+  }
+}
+
+// preloader
+#preloader {
+    background: none repeat scroll 0 0 #fff;
+    height: 100%;
+    position: fixed;
+    width: 100%;
+    left:0px;
+    top:0px;
+    z-index: 9999;
+}
+
+#preloader i {
+  color: $color-orange;
+    left: 50%;
+    margin-left: -15px;
+    margin-top: -15px;
+    position: absolute;
+    top: 50%;
+}

@@ -15,6 +15,5 @@
 //= require turbolinks
 //= require bootstrap.min
 //= require jquery.pagedown-bootstrap.combined.min
-//= require main
 //= require masonry.pkgd.min
 //= require wow.min
