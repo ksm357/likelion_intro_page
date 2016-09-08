@@ -1,21 +1,21 @@
 <div class="container content">
   <div class="content_section">
     <div class="title_box wow fadeInDown">
-        <h2>
-            Board
-        </h2>
-        <a class="btn btn-default write_button wow fadeIn" href="/board/list" role="button">
-          <i class="fa fa-arrow-left fa-lg"></i> back
-        </a>
+      <h2>
+        Board
+      </h2>
     </div>
-    <p class="text-label">Title</p>
+    <h3 class="text-label">Title</h3>
     <div class="border-title">
       <p><%= @post.title %></p>
     </div>
-    <p class="text-label">Content</p>
-    <div class="border-content">
-      <p><%= markdown(@post.content) %></p>
+    <h3 class="text-label">Content</h3>
+    <div class="wmd-preview">
+      <%= markdown(@post.content) %>
     </div>
+    <a class="btn btn-default right_button wow fadeIn" href="/board/list" role="button">
+      <i class="fa fa-arrow-left fa-lg"></i> back
+    </a>
   </div><!--content_section-->
 </div><!--container-->
 

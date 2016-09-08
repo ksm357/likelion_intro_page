@@ -1,26 +1,26 @@
 <div class="container content">
   <div class="content_section">
     <div class="title_box wow fadeInDown">
-        <h2>
-            Board
-        </h2>
-        <a class="btn btn-default write_button wow fadeIn" href="/board/list" role="button">
-          <i class="fa fa-arrow-left fa-lg"></i> back
-        </a>
+      <h2>
+          Board
+      </h2>
     </div>
     <form action="/board/write_post" method="POST">
       <div class="form-group">
-        <label>Title</label>
-        <input class="form-control" name="title" placeholder="Title" maxlength="30" required>
+        <label for="post_title">Title</label>
+        <input id="post_title" class="form-control" name="title" placeholder="Title" maxlength="30" required>
       </div>
       <div class="form-group">
-        <label>Content</label>
-        <textarea id="pagedownMe" name="content" class="form-control" rows="20" placeholder="Content" required></textarea>
+        <label for="post_content">Content</label>
+        <textarea id="post_content" name="content" class="form-control" rows="20" placeholder="Content" required></textarea>
       </div>
-      <button class="btn btn-default submit_button" type="submit">
+      <button class="btn btn-default right_button wow fadeIn" type="submit">
         <i class="fa fa-check fa-lg"></i> Submit
       </button>
     </form>
+    <a class="btn btn-default left_button wow fadeIn" href="/board/list" role="button">
+      <i class="fa fa-arrow-left fa-lg"></i> back
+    </a>
   </div><!--content_section-->
 </div><!--container-->
 
@@ -30,6 +30,6 @@ $(function() {
     $("a#link_board").attr("href", "#");
     $("a#link_board").addClass("menu-selected");
     //write editor
-    $("textarea#pagedownMe").pagedownBootstrap();
+    $("textarea#post_content").pagedownBootstrap();
 });
 </script>

@@ -1,74 +1,105 @@
-// .board_container{
-//    margin: 0px 0px 50px 0px;
-//    width: 100%;
-//    min-height: 600px;
-//    background-color: rgba(255, 255, 255, 0.8);
-//    padding: 0px 30px 20px 30px;
-//    -moz-box-shadow: 4px 4px 5px 5px rgba(10,10,0,.5);
-//    -webkit-box-shadow: 4px 4px 10px 5px rgba(10,10,0,.5);
-//    box-shadow: 2px 2px 10px 3px rgba(10,10,0,.5);
-// }
-
- /*** board/list.html ***/
-.write_button,
-.submit_button{
-  float:right;
+.post_list {
+  list-style: none;
+  padding: 0;
 }
-.table>tbody>tr>th.table-number{
-  width: 10%;
-  vertical-align: middle;
-}
-.table>tbody>tr>th.table-content{
-  width: 90%;
-  .table-content-title{
-    max-width: 300px;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    margin: 5px 0px;
-
+.post_item {
+  position: relative;
+  border-top: 1px solid #ddd;
+  height: 60px;
+  .post_num {
+    display: inline-block;
+    width: 60px;
+    height: 100%;
+    padding-left: 10px;
+    line-height: 59px;
+    font-style: normal;
+    font-weight: bold;
+  }
+  .post_content {
+    position: absolute;
+    left: 60px;
+    right: 0;
+    top: 0;
+    bottom: 0;
+  }
+  .post_title {
+    display: block;
+    padding-top: 10px;
+  }
+  .post_writer {
+    float: left;
+    font-weight: bold;
+  }
+  .post_date {
+    float: left;
+    font-weight: bold;
+    &:before {
+      // display: inline-block;
+      float: left;
+      width: 2px;
+      height: 10px;
+      margin: 5px 8px;
+      background-color: $color-light-text;
+      content: '';
+    }
+  }
+  .post_hits {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    font-weight: bold;
   }
 }
 
-//칸막이
-.text_bar {
-    display: inline-block;
-    width: 2px;
-    height: 10px;
-    margin: 0 8px;
-    background-color: $color-light-text;
+.right_button {
+  position: absolute;
+  top: 200px;
+  right: 0px;
+  width: 90px;
+}
+.left_button {
+  position: absolute;
+  top: 200px;
+  right: 100px;
+  width: 90px;
+}
+.flash_message {
+  position: absolute;
+  top: 200px;
+  right: 100px;
+  padding: 5px;
+  margin: 0;
 }
 
-/*** board/detail.html ***/
-
-.text-label{
-  margin-bottom: 5px;
+// board/detail.html
+.text-label {
+  margin:0;
   font-size: 14px;
   font-weight: 700;
 }
-.border-title,
-.border-content{
-    padding: 6px 12px;
-    border: 1px solid $color-grey;
-    border-radius:5px;
-}
-.border-title{
-  margin-bottom: 20px;
+.border-title {
+  margin: 10px 0 20px;
+  padding: 6px 12px;
+  border: 1px solid $color-grey;
+  border-radius:5px;
   p{
     margin: 0px;
   }
 }
 
-/*** board/write_post.html ***/
-.wmd-input{
+// board/write_post.html
+.wmd-input {
   resize: none;
   margin-top: 10px;
 }
 
-.wmd-preview{
+.wmd-preview {
   margin: 10px 0px 10px 0px;
   padding: 10px 10px;
   background-color: white;
   border: 1px solid $color-grey;
   border-radius:5px;
+  h1, h2, h3 {
+    margin: 0 0 10px;
+  }
 }

@@ -1,46 +1,45 @@
 <div class="container content">
   <div class="content_section">
     <div class="title_box wow fadeInDown">
-        <h2>
-            Board
-        </h2>
-        <% if user_signed_in? && current_user.role == "admin" %>
-          <a class="btn btn-default write_button wow fadeIn" href="/board/write_post" role="button">
-            <i class="fa fa-pencil fa-lg"></i> write
-          </a>
-        <% end %>
+      <h2>
+        Board
+      </h2>
     </div>
     <!-- board -->
-    <table class="table">
-      <tbody>
-        <% @post_list.each do |post| %>
-        <tr>
-          <th class="table-number">
-            <h5># <%= post.id %></h5>
-          </th>
-          <th class="table-content">
-            <a href="/board/detail/<%=post.id%>">
-              <h5 class="table-content-title"><%= post.title %></h5>
-            </a>
-            <span><i class="fa fa-user"></i> admin</span>
-            <span class="text_bar"></span>
-            <span>
+    <ul class="post_list">
+      <% @post_list.each do |post| %>
+        <li class="post_item">
+          <em class="post_num"># <%= post.id %></em>
+          <div class="post_content">
+            <strong class="post_title"><a href="/board/detail/<%=post.id%>"><%= post.title %></a></strong>
+            <span class="post_writer">
+              <i class="fa fa-user"></i> admin
+            </span>
+            <span class=" post_date">
               <i class="fa fa-clock-o"></i> <%= post.created_at.in_time_zone("Seoul").strftime("%Y.%m.%d %H:%M") %>
             </span>
-            <span class="floatright">
-              조회 <%= post.hits %>
-            </span>
-          </th>
-        </tr>
-        <% end %>
-      </tbody>
-    </table>
+            <span class="post_hits">조회 <%= post.hits %></span>
+          </div>
+        </li>
+      <%end%>
+    </ul>
+    <a class="btn btn-default right_button wow fadeIn" href="check_write_authority" role="button">
+      <i class="fa fa-pencil fa-lg"></i> write
+    </a>
+    <% if flash[:alert] %>
+       <div class="alert alert-danger flash_message" role="alert"><%= flash[:alert] %></div>
+    <% end %>
   </div><!--content_section-->
 </div><!--container-->
-
 <script>
 $(function() {
     $("a#link_board").attr("href", "#");
     $("a#link_board").addClass("menu-selected");
+
+    // flash_message
+    // $('.flash_message').fadeOut(1000).delay(1500).next().fadeIn(1000);
+    // $('.flash_message').delay(2000).fadeOut(1500);
+    $('.flash_message').delay(2000).fadeOut(700);
+
 });
 </script>
