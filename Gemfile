@@ -52,3 +52,5 @@ gem 'font-awesome-sass', '~> 4.5.0'
 gem 'redcarpet', '~> 3.0.0'
 # User Management
 gem 'devise'
+# Pagination
+gem 'kaminari'

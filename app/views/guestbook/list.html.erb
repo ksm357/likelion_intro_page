@@ -68,6 +68,10 @@
         <% end %>
       <% end %>
     </ul>
+    <div class="page_nav_wrap">
+      <%#= paginate @guest_post_list %>
+    </div>
+    <%#= page_entries_info @guest_post_list %>
   </div><!--content_section-->
 </div><!--container-->
 
@@ -186,6 +190,16 @@ $(function() {
     //navbar change color
     $("a#link_guest_book").attr("href", "#");
     $("a#link_guest_book").addClass("menu-selected");
+
+    $('.page_nav_wrap').twbsPagination({
+      totalPages: "<%=@page_count%>",
+      visiblePages: 5,
+      href: "?page={{number}}",
+      first: "&lt;&lt;",
+      prev: "&lt;",
+      next: "&gt;",
+      last: "&gt;&gt;"
+    });
 });
 
 $('#modifyModalLogIn').on('shown.bs.modal', function (event) {

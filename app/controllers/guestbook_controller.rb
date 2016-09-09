@@ -1,7 +1,9 @@
 class GuestbookController < ApplicationController
   def list
     if request.method == "GET"
-      @guest_post_list = GuestPost.all.reverse
+      # @guest_post_list = GuestPost.all.reverse
+      @page_count = GuestPost.all.count/10 + 1;
+      @guest_post_list = GuestPost.order(id: :desc).page(params[:page]).per(10)
     else # request.method == "POST"
       if user_signed_in?
         @guest_post = GuestPost.create(

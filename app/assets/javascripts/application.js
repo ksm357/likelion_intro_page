@@ -16,4 +16,5 @@
 //= require bootstrap.min
 //= require jquery.pagedown-bootstrap.combined.min
 //= require masonry.pkgd.min
+//= require jquery.twbsPagination.min
 //= require wow.min

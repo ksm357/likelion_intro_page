@@ -1,7 +1,9 @@
 .guest_form_field{
   border: 0 none;
   .guest_form {
-
+    &:after {
+      @extend %clearfix;
+    }
   }
   .guest_input {
     float: left;
@@ -60,4 +62,7 @@
 .modal_warn_message {
   font-size: 24px;
   color: #d9534f;
+}
+.page_nav_wrap {
+  text-align: center;
 }
