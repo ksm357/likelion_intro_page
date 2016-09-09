@@ -1,16 +1,13 @@
 .guest_form_field{
   border: 0 none;
-  .guest_form{
-    input{
-      border-radius: 0px;
-    }
-    .form_password{
-      padding-left: 0px;
-      padding-bottom: 15px;
-    }
-    .form_secret{
-      padding: 8px 0px;
-    }
+  .guest_form {
+
+  }
+  .guest_input {
+    float: left;
+    margin: 0 20px 20px 0;
+    border-radius: 0px;
+    width: 150px;
   }
   .guest_form_content{
     resize: none;
@@ -20,42 +17,47 @@
     float: right;
   }
 }
-.list_default_style{
+.guest_name {
+  display: block;
+  font-size: 20px;
+  font-weight: normal;
+  margin: 10px 0;
+}
+.guest_post_list{
   padding-left: 0px;
   list-style: none;
   .list_secret_item{
     list-style: none;
     border-top: 1px solid $color-hr;
-    padding: 10px 0px 0px 0px;
+    padding: 10px;
   }
   .list_public_item{
+    position: relative;
     list-style: none;
     border-top: 1px solid $color-hr;
-    padding: 30px 0px 30px 0px;
-    .guest_date{
-      margin-top: -20px;
-    }
+    padding: 20px 0px;
+    margin: 0 10px;
   }
   .guest_date{
-    float: right;
+    position: absolute;
+    top: 5px;
+    right: 0;
     color: $color-light-text;
     font-size: 12px;
   }
   .guest_secret_message{
     font-size:20px;
     font-weight:400;
-    padding:10px 20px 20px 20px;
-  }
-  .guest_name{
-    display: inline;
-    padding: 0px 20px;
-    font-size: 20px;
-    font-weight:400;
+    margin: 0;
   }
   .guest_content{
     font-size:14px;
     font-weight:400;
     color: $color-light-text;
-    padding:0px 40px 0px 40px;
+    padding:0px 20px;
   }
+}
+.modal_warn_message {
+  font-size: 24px;
+  color: #d9534f;
 }

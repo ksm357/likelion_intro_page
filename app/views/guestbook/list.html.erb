@@ -7,20 +7,17 @@
     </div>
     <form action="/guestbook/list" method="POST">
       <fieldset class="guest_form_field">
-        <div class="guest_form row">
+        <legend class="blind">방명록</legend>
+        <div class="guest_form">
           <% if user_signed_in? %>
-            <div class="col-md-12">
-                <h3>
-                  <i class="fa fa-user"></i> <%= current_user.name %>
-                </h3>
-            </div>
+            <strong class="guest_name">
+              <i class="fa fa-user"></i> <%= current_user.name %>
+            </strong>
           <% else %>
-            <div class="col-md-3 col-xs-5">
-              <input class="form-control" name="name" placeholder="Name" maxlength="20" required>
-            </div>
-            <div class="col-md-3 col-xs-5 form_password">
-              <input class="form-control" name="password" placeholder="Password" type="password" maxlength="20" required>
-            </div>
+            <label for="guest_name" class="blind">name</label>
+            <input id="guest_name" class="form-control guest_input" name="name" placeholder="Name" maxlength="20" required>
+            <label for="guest_pw" class="blind">password</label>
+            <input id="guest_pw" class="form-control guest_input" name="password" placeholder="Password" type="password" maxlength="20" required>
             <!-- <div class="col-md-3 col-xs-2 form_secret">
               <input type="checkbox" name="is_secret" value="true"> Secret
             </div>-->
@@ -34,22 +31,22 @@
         </button>
       </fieldset>
     </form>
-    <ul class="list_default_style">
+    <ul class="guest_post_list">
       <% @guest_post_list.each do |guest_post| %>
         <% if guest_post.is_secret %>
           <li class="list_secret_item">
             <div class="guest_date">
               <i class="fa fa-clock-o"></i> <%= guest_post.created_at.in_time_zone("Seoul").strftime("%Y.%m.%d %H:%M") %>
             </div>
-            <h4 class="guest_secret_message">
+            <p class="guest_secret_message">
               <i class="fa fa-question fa-2x"></i> 비밀 메시지 입니다.
-            </h4>
+            </p>
           </li>
         <% else %>
           <li class="list_public_item">
-            <h2 class="guest_name">
+            <strong class="guest_name">
                 <i class="fa fa-user"></i> <%= guest_post.name %>
-            </h2>
+            </strong>
             <div class="guest_date">
               <% if user_signed_in? && guest_post.user != nil%>
                 <% if guest_post.user.id == current_user.id %>
@@ -61,13 +58,12 @@
                 <a href="#" data-toggle="modal" data-target="#modifyModalNotLogIn" data-id="<%=guest_post.id%>"
                   data-name="<%=guest_post.name%>" data-content="<%=guest_post.content%>"> 수정</a> |
                 <a href="#" data-toggle="modal" data-target="#deleteModalNotLogIn" data-id="<%=guest_post.id%>">삭제</a>
-        ls
               <% end %>
               <i class="fa fa-clock-o"></i> <%= guest_post.created_at.in_time_zone("Seoul").strftime("%Y.%m.%d %H:%M") %>
             </div>
-            <h4 class="guest_content">
+            <p class="guest_content">
               <%= guest_post.content.gsub(/\r\n/, '<br/>').html_safe %>
-            </h4>
+            </p>
           </li>
         <% end %>
       <% end %>
@@ -81,7 +77,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="exampleModalLabel">Modify</h4>
+        <h3 class="modal-title" id="exampleModalLabel">Modify</h3>
       </div>
       <form action="/guestbook/modify_log_in" enctype="multipart/form-data" method="POST">
           <input id="modify_id" type="hidden" name="guest_post_id">
@@ -109,7 +105,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="exampleModalLabel">Modify</h4>
+        <h3 class="modal-title" id="exampleModalLabel">Modify</h3>
       </div>
       <form action="/guestbook/modify_not_log_in" enctype="multipart/form-data" method="POST">
         <input id="modify_id_not_log_in" type="hidden" name="guest_post_id">
@@ -141,14 +137,14 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="exampleModalLabel">Delete</h4>
+        <h3 class="modal-title" id="exampleModalLabel">Delete</h3>
       </div>
       <form action="/guestbook/delete_log_in" enctype="multipart/form-data" method="POST">
           <input id="delete_id" type="hidden" name="guest_post_id">
           <div class="modal-body">
-            <h3>
+            <p class="modal_warn_message">
                 정말 삭제하시겠습니까?
-            </h3>
+            </p>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
@@ -165,14 +161,14 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="exampleModalLabel">Delete</h4>
+        <h3 class="modal-title" id="exampleModalLabel">Delete</h3>
       </div>
       <form action="/guestbook/delete_not_log_in" enctype="multipart/form-data" method="POST">
           <input id="delete_id_not_log_in" type="hidden" name="guest_post_id">
           <div class="modal-body">
-            <h3>
+            <p class="modal_warn_message">
                 정말 삭제하시겠습니까?
-            </h3>
+            </p>
             </hr>
             <label for="modify_password">비밀번호 확인</label>
             <input type="password" name="guest_post_password" class="form-control" id="delete_password" required>
@@ -185,8 +181,6 @@
     </div>
   </div>
 </div>
-
-
 <script>
 $(function() {
     //navbar change color
@@ -220,5 +214,4 @@ $('#deleteModalNotLogIn').on('shown.bs.modal', function (event) {
   var modal = $(this);
   $("#delete_id_not_log_in").val(button.data('id'));
 });
-
 </script>
