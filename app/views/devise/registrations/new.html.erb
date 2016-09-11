@@ -8,56 +8,47 @@
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
 
       <div class="field">
-        <% f.label :name %><h4>이름*</h4>
+        <%= f.label :name, "이름*" %>
         <%= f.text_field :name, class: "form-control input_area",  autofocus: true, required: true %>
       </div>
 
       <div class="field">
-        <% f.label :email %><h4>이메일*</h4>
-        <%= f.email_field :email, id: "email",
-        class: "form-control input_area", required: true %>
-        <h5 id="email_duplication_message" class="warning_message"><i class="fa fa-exclamation-circle"></i> 이미 등록되어있는 이메일 주소입니다.</h5>
-        <h5 id="email_validation_message" class="warning_message"><i class="fa fa-exclamation-circle"></i> 유효하지 않은 이메일 주소입니다.</h5>
+        <%= f.label :email, "이메일*" %>
+        <%= f.email_field :email, class: "form-control input_area", required: true %>
+        <em id="email_duplication_message" class="warning_message"><i class="fa fa-exclamation-circle"></i> 이미 등록되어있는 이메일 주소입니다.</em>
+        <em id="email_validation_message" class="warning_message"><i class="fa fa-exclamation-circle"></i> 유효하지 않은 이메일 주소입니다.</em>
       </div>
 
       <div class="field">
-        <% f.label :password %><h4 class="inline-block">비밀번호*</h4>
-        <em>(영문, 숫자를 조합한 8~20자의 비밀번호를 입력하세요.)</em>
-        <br />
-        <%= f.password_field :password, id: "password",
-        class: "form-control input_area", autocomplete: "off", required: true%>
-        <h5 id="pwd_warning_message" class="warning_message"><i class="fa fa-exclamation-circle"></i> 영문, 숫자를 조합한 8~20자의 비밀번호를 입력하세요.</h5>
+        <%= f.label :password, "비밀번호*" %><em>(영문, 숫자를 조합한 8~20자의 비밀번호를 입력하세요.)</em>
+        <%= f.password_field :password, class: "form-control input_area", autocomplete: "off", required: true%>
+        <em id="pwd_warning_message" class="warning_message"><i class="fa fa-exclamation-circle"></i> 영문, 숫자를 조합한 8~20자의 비밀번호를 입력하세요.</em>
       </div>
 
       <div class="field">
-        <% f.label :password_confirmation %><h4>비밀번호 확인*</h4>
-        <%= f.password_field :password_confirmation,  id: "password_check",
-        class: "form-control input_area", autocomplete: "off", required: true %>
-        <h5 id="pwd_check_warning_message" class="warning_message"><i class="fa fa-exclamation-circle"></i> 비밀번호가 일치하지 않습니다.</h5>
+        <%= f.label :password_check, "비밀번호 확인*" %>
+        <%= f.password_field :password_check, class: "form-control input_area", autocomplete: "off", required: true %>
+        <em id="pwd_check_warning_message" class="warning_message"><i class="fa fa-exclamation-circle"></i> 비밀번호가 일치하지 않습니다.</em>
       </div>
 
-      <div class="field">
-        <% f.label :phone_number %><h4 class="inline-block">핸드폰 번호</h4>
-        <em>('-'없이 입력해주세요.)</em>
-        <br />
+      <!-- <div class="field">
+        <%= f.label :phone_number, "핸드폰 번호" %><em>('-'없이 입력해주세요.)</em>
         <%= f.text_field :phone_number, class: "form-control input_area"%>
-      </div>
+      </div> -->
 
       <div class="field">
-        <% f.label :major %><h4>전공</h4>
+        <%= f.label :major, "전공" %>
         <%= f.text_field :major, class: "form-control input_area"%>
       </div>
 
       <div class="field">
-        <% f.label :introduction %><h4 class="inline-block">소개</h4>
-        <em>(Member페이지에 소개 되는 글입니다.)</em>
-        <br />
+        <%= f.label :introduction, "소개" %><em>(Member 페이지에 소개 되는 글입니다.)</em>
         <%= f.text_area :introduction, :class => "form-control introduction_area", :cols => 22, :rows => 10 %>
       </div>
 
       <div class="actions">
         <!-- <%= f.submit "Sign up" %> -->
-        <button id="sign_up" class="btn btn-default submit_margin" type="submit">
+        <button id="sign_up" class="btn btn-default" type="submit">
           <i class="fa fa-user-plus fa-lg"></i> Sign up
           <!-- <%=f.submit "Log in", class: "btn btn-default"%> -->
         </button>
@@ -70,9 +61,9 @@
 <script>
   $(function(){
   	$("#sign_up").click(function(){
-      var email= document.getElementById("email").value;
-      var password=document.getElementById("password").value;
-      var password_check=document.getElementById("password_check").value;
+      var email= document.getElementById("user_email").value;
+      var password=document.getElementById("user_password").value;
+      var password_check=document.getElementById("user_password_check").value;
       var password_match = password.match(/^.*(?=.{8,20})(?=.*[0-9])(?=.*[a-zA-Z]).*$/);
       var email_match = email.match(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/);
 
@@ -94,9 +85,9 @@
     });
 
     //email 중복 체크
-    $("#email").change(function(){
+    $("#user_email").change(function(){
       $.ajax({
-        data:{email: $("#email").val()},
+        data:{email: $("#user_email").val()},
         url: "/user/email_duplication_check",
         success: function(data){
           if(data.is_duplicate)
@@ -105,12 +96,12 @@
             $("#email_duplication_message").hide();
         }
       });
-      var email = $("#email").val();
+      var email = $("#user_email").val();
     });
 
     //email 형식 체크
-    $("#email").keyup(function() {
-      var email = $("#email").val();
+    $("#user_email").keyup(function() {
+      var email = $("#user_email").val();
       var email_match = email.match(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/);
       if(email_match == null && email != ""){
          $("#email_validation_message").show();
@@ -120,8 +111,8 @@
     });
 
     //password 형식 체크
-    $("#password").keyup(function(){
-      var password = $("#password").val();
+    $("#user_password").keyup(function(){
+      var password = $("#user_password").val();
       var password_match = password.match(/^.*(?=.{8,20})(?=.*[0-9])(?=.*[a-zA-Z]).*$/);
       if(password_match == null && password != "")
          $("#pwd_warning_message").show();
@@ -130,9 +121,9 @@
     });
 
     //비밀번호 확인 체크
-    $("#password_check").keyup(function(){
-      var password = $("#password").val();
-      var password_check = $("#password_check").val();
+    $("#user_password_check").keyup(function(){
+      var password = $("#user_password").val();
+      var password_check = $("#user_password_check").val();
       if(password != password_check)
          $("#pwd_check_warning_message").show();
       else

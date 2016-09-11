@@ -4,7 +4,8 @@ class AdminController < ApplicationController
     if !(user_signed_in? && current_user.role == "admin")
       redirect_to '/'
     end
-    @user_list = User.all
+    @page_count = User.all.count/20 + 1;
+    @user_list = User.order(id: :desc).page(params[:page]).per(20)
   end
 
   # 유저 정보 수정

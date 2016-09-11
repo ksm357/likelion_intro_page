@@ -38,6 +38,9 @@
         <% end %>
       </tbody>
     </table>
+    <div class="page_nav_wrap">
+      <%#= paginate @guest_post_list %>
+    </div>
   </div>
 </div>
 
@@ -47,14 +50,14 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="exampleModalLabel">Delete</h4>
+        <h3 class="modal-title" id="exampleModalLabel">Delete</h3>
       </div>
       <form action="/admin/user_delete" enctype="multipart/form-data" method="POST">
           <input id="delete_id" type="hidden" name="user_id">
           <div class="modal-body">
-            <h3>
+            <p class="modal_warn_message">
                 정말 삭제하시겠습니까?
-            </h3>
+            </p>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
@@ -71,7 +74,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="exampleModalLabel">Modify</h4>
+        <h3 class="modal-title" id="exampleModalLabel">Modify</h3>
       </div>
       <form action="/admin/user_modify" enctype="multipart/form-data" method="POST">
           <input id="modify_id" type="hidden" name="user_id">
@@ -103,27 +106,39 @@
 
 
 <script>
-    $('#deleteModal').on('shown.bs.modal', function (event) {
-      var button = $(event.relatedTarget); // Button that triggered the modal
-      var modal = $(this);
-      document.getElementById('delete_id').value = button.data('id');
-    });
+$(function() {
+  $('.page_nav_wrap').twbsPagination({
+    totalPages: "<%=@page_count%>",
+    visiblePages: 5,
+    href: "?page={{number}}",
+    first: "&lt;&lt;",
+    prev: "&lt;",
+    next: "&gt;",
+    last: "&gt;&gt;"
+  });
 
-    $('#modifyModal').on('shown.bs.modal', function (event) {
-      var button = $(event.relatedTarget); // Button that triggered the modal
-      var modal = $(this);
-      // document.getElementById('modify_id').value = button.data('id');
-      document.getElementById('modify_id').value = button.data('id');
-      document.getElementById('modify_name').value = button.data('name');
-      document.getElementById('modify_phonenumber').value = button.data('phonenumber');
-      document.getElementById('modify_major').value = button.data('major');
-      document.getElementById('modify_role').value = button.data('role');
-      document.getElementById('modify_introduction').innerHTML = button.data('introduction');
+  $('#deleteModal').on('shown.bs.modal', function (event) {
+    var button = $(event.relatedTarget); // Button that triggered the modal
+    var modal = $(this);
+    document.getElementById('delete_id').value = button.data('id');
+  });
 
-      // document.getElementById('modify_major').src = button.data('major');
-      // modal.find('.modify_id').val(id);
-      // modal.find('.modify_name').val(name);
-      // modal.find('.modify_image').val(image);
-      // modal.find('.modify_content').val(content);
-    });
+  $('#modifyModal').on('shown.bs.modal', function (event) {
+    var button = $(event.relatedTarget); // Button that triggered the modal
+    var modal = $(this);
+    // document.getElementById('modify_id').value = button.data('id');
+    document.getElementById('modify_id').value = button.data('id');
+    document.getElementById('modify_name').value = button.data('name');
+    document.getElementById('modify_phonenumber').value = button.data('phonenumber');
+    document.getElementById('modify_major').value = button.data('major');
+    document.getElementById('modify_role').value = button.data('role');
+    document.getElementById('modify_introduction').innerHTML = button.data('introduction');
+
+    // document.getElementById('modify_major').src = button.data('major');
+    // modal.find('.modify_id').val(id);
+    // modal.find('.modify_name').val(name);
+    // modal.find('.modify_image').val(image);
+    // modal.find('.modify_content').val(content);
+  });
+});
 </script>

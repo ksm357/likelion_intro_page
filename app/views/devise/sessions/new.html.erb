@@ -1,19 +1,19 @@
 <div class="container content">
   <div class="content_section">
     <div class="title_box wow fadeInDown">
-        <h2>
-            Log in
-        </h2>
+      <h2>
+        Log in
+      </h2>
     </div>
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <div class="field">
-        <% f.label :email %><h4>이메일</h4>
-        <%= f.email_field :email, class: "form-control input_area", autofocus: true %>
+        <%= f.label :email, "이메일" %>
+        <%= f.email_field :email, class: "form-control input_area", autofocus: true, required: true  %>
       </div>
 
       <div class="field">
-        <% f.label :password %><h4>비밀번호</h4>
-        <%= f.password_field :password, class: "form-control input_area", autocomplete: "off" %>
+        <%= f.label :password, "비밀번호" %>
+        <%= f.password_field :password, class: "form-control input_area", autocomplete: "off", required: true  %>
       </div>
 
       <!-- <% if devise_mapping.rememberable? -%>
