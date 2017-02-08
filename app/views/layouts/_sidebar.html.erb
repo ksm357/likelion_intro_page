@@ -21,10 +21,16 @@
               <a id="link_member" href="/member/list">Member</a>
           </li>
           <li>
+              <a id="link_photo" href="/photo/list">Photo</a>
+          </li>
+          <li>
               <a id="link_board" href="/board/list">Board</a>
           </li>
           <li>
               <a id="link_guest_book" href="/guestbook/list">Guest Book</a>
+          </li>
+          <li>
+              <a id="link_apply" href="/apply/list">Apply</a>
           </li>
           <!-- admin 페이지 -->
           <% if user_signed_in? && current_user.role == "admin" %>
